@@ -1,7 +1,4 @@
-# models/no_attention.py
-"""
-Baseline model: drug pooling + gene pooling + drug global features.
-"""
+# bca_hfp/models/no_attention.py
 import torch
 import torch.nn as nn
 
