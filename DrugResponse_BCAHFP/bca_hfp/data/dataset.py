@@ -1,7 +1,4 @@
-# data/dataset.py
-"""
-Dataset classes and collate_fn for batch processing.
-"""
+# bca_hfp/data/dataset.py
 import torch
 from torch.utils.data import Dataset
 
@@ -90,3 +87,4 @@ class BaselineDataset(Dataset):
         drug, gene, label = self.samples[idx]
         return torch.tensor(drug, dtype=torch.float32), torch.tensor(gene, dtype=torch.float32), torch.tensor(label,
                                                                                                               dtype=torch.float32)
+
