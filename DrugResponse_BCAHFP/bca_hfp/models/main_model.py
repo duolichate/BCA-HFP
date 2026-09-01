@@ -1,4 +1,4 @@
-# models/main_model.py
+# bca_hfp/models/main_model.py
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
