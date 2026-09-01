@@ -1,3 +1,4 @@
+# bca_hfp/config/__init__.py
 """
 Configuration module: centralized hyperparameter management with experiment versioning support.
 """
