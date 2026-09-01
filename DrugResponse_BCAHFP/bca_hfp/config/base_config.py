@@ -1,4 +1,4 @@
-# config/base_config.py
+# bca_hfp/config/base_config.py
 import copy
 import os
 
