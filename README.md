@@ -88,19 +88,8 @@ conda activate gene
 
 ```bash
 # Holdout training (default: Geneformer v1)
-python -m bca_hfp.training.train_holdout --dataset GDSC --gene_version V1 --model_type attention
-
-# Cross-validation
-python -m bca_hfp.training.train_cv --dataset GDSC --gene_version V1 --model_type attention
+python -m bca_hfp.training.train_holdout --dataset GDSC --gene_version V1 --model_type attention --split_method drug --layer 3
 ```
-
-### Evaluation
-
-```bash
-# Evaluate on the full test set
-python -m bca_hfp.analysis.predict_all --dataset GDSC --gene_version V1 --model_type attention
-```
-
 
 
 ## License
