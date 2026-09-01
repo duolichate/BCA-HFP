@@ -56,7 +56,6 @@ bca_hfp/
 │   ├── trainer.py                   # Trainer
 │   ├── metrics.py                   # Evaluation metrics (R², RMSE, Pearson)
 │   ├── train_holdout.py             # Holdout training script
-│   ├── train_cv.py                  # Cross-validation training script
 │   └── extract_attention.py         # Attention weight extraction
 │
 ├── utils/           # Utility functions
@@ -82,7 +81,7 @@ The model uses the **GDSCv2** dataset. Data preprocessing includes:
 git clone https://github.com/duolichate/BCA-HFP.git
 cd BCA-HFP/DrugResponse_BCAHFP
 conda env create -f environment.yml
-conda activate bca-hfp
+conda activate gene
 ```
 
 ### Train
