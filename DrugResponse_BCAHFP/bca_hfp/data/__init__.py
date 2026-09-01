@@ -1,7 +1,4 @@
-# data/__init__.py
-"""
-Data loading, preprocessing, and splitting with cell line/drug stratification to prevent data leakage.
-"""
+# bca_hfp/data/__init__.py
 from .loader import (
     load_drug_atom_features, load_gene_embeddings, load_response,
     pool_drug_atom_features, pool_gene_embeddings
@@ -13,4 +10,3 @@ __all__ = [
     'pool_drug_atom_features', 'pool_gene_embeddings',
     'DrugGeneDataset', 'BaselineDataset', 'collate_fn'
 ]
-
