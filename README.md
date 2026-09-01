@@ -102,13 +102,7 @@ python -m bca_hfp.training.train_cv --dataset GDSC --gene_version V1 --model_typ
 python -m bca_hfp.analysis.predict_all --dataset GDSC --gene_version V1 --model_type attention
 ```
 
-## Citation
 
-If you use BCA-HFP in your research, please cite:
-
-```
-Ye, Q.; Xie, X.; Song, Y.; Yu, H.; Lu, L. Bidirectional Cross-Attention with High-Resolution Fingerprints Enables Zero-Shot Anticancer Drug Response Prediction.
-```
 
 ## License
 
