@@ -1,13 +1,5 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-"""
-Extract gate weights and cross-attention weights.
-Supports two modes:
-  1. gate_only: extract gate weights only -> CSV summary (fast, for large-scale extraction)
-  2. full: extract gate + attention weights -> CSV + per-sample .npy files (for visualization)
-Supports selecting train/val/test/all sets.
-Supports filtering by drug_id and cell_std_name.
-"""
+# bca_hfp/training/extract_attention.py
+"""Extract gate weights and cross-attention weights from trained models."""
 
 import sys
 import os
