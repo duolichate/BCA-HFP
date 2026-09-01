@@ -1,4 +1,4 @@
-# models/__init__.py
+# bca_hfp/models/__init__.py
 """
 Model factory: returns RegressorBaseline or Regressor based on model_type.
 Exports Regressor, RegressorBaseline, CrossAttention.
