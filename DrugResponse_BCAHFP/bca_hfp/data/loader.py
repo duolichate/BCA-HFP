@@ -1,7 +1,4 @@
-# data/loader.py
-"""
-Load drug features, gene embeddings, and response data. Provides pooling functions for baseline models.
-"""
+# bca_hfp/data/loader.py
 import os
 import torch
 import pandas as pd
