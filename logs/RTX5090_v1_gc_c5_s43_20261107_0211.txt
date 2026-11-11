@@ -1,0 +1,1196 @@
+[log] D:\ProgramData\my_model\5_Result\4_training_logs\RTX5090_v1_gc_c5_s43_20261107_0211.txt  env=RTX5090
+Random seed set to 43 (deterministic=True)
+============================================================================================
+RUN CONFIG (CV)
+============================================================================================
+  seed=43  split_seed=42  n_splits=5  reg_norm=batchnorm
+  h5=D:\ProgramData\my_model\1_Data/Drug/GDSC_RES_FGBERT.h5
+  gene_feat_dir=D:\ProgramData\my_model\1_Data/Gene/GDSC_EXP_GF_V1
+  epochs=20  early_stop_patience=0
+  modality_dropout: drug_global=0.0 global_gene=0.0
+  query_source=None  add_atom_modality=None  decouple_atom=False  no_residual=False  center_keys=False  center_query=False  atom_cond=False(pos=post)  key_cond=False  gate_content=True  gate_hidden=auto  gate_entropy=0  g2d_pool=mean  drop_drug_global_modality=False
+  loss=mse  drug_mean_weight=0.5  within_weight=0.0  query_contrast=0.0(tau=0.1)  sampler=auto  drug_bias_l2=0  balance_rule=gated
+  censoring: use_cens=True  tobit_sigma=0  rmse_weight=False  pred_clamp=True  win_penalty=0  fgbert_global=False  use_desc=True
+  output_root=D:\ProgramData\my_model\5_Result\1_main_models\RTX5090_v1_gc_c5_s43_20261107_0211
+============================================================================================
+============================================================
+Loading data...
+============================================================
+Generating drug global features...
+  drug_global_dim = 2056
+Valid samples: 198606
+Using device: cuda
+
+============================================================
+Fold 1/5
+============================================================
+Train: 140581, Val: 18296, Test: 39729
+Valid samples: 140581
+Valid samples: 18296
+Valid samples: 39729
+  [sampler=grouped] drugs/batch=8  samples/drug=4  steps/epoch=4393
+  model params : total=2,799,109  trainable=2,799,109  init_temperature=['1.0000']
+
+============================================================
+[Diagnostic] Epoch 1 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0000 | Min: -2.9703 | Max:  4.8085
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.5820 | Max:  6.3041
+Drug Global    | Mean: -0.0000 | Std:  0.9995 | Min: -3.2193 | Max:  3.6995
+============================================================
+
+  New best val model saved at epoch 1 (val R²=-1.5683)
+Fold 1 | Epoch   1 |    390s | LR 2.00e-05 | TrLoss 12.9980 | TrR2 -0.4233 | VaLoss 12.1735 | VaR2 -1.5683 | VaMAE 3.0492 | VaRMSE 3.4908 | VaPearson 0.5691 | Aux 2.7640 | patience 0/off | T 0.992
+
+============================================================
+[Diagnostic] Epoch 2 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0000 | Min: -2.6955 | Max:  4.3108
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.7919 | Max:  6.4598
+Drug Global    | Mean:  0.0000 | Std:  0.9994 | Min: -3.8625 | Max:  3.0034
+============================================================
+
+  New best val model saved at epoch 2 (val R²=-0.7211)
+Fold 1 | Epoch   2 |    371s | LR 2.00e-05 | TrLoss 6.5051 | TrR2 +0.2950 | VaLoss 8.1555 | VaR2 -0.7211 | VaMAE 2.4075 | VaRMSE 2.8576 | VaPearson 0.5949 | Aux 1.6462 | patience 0/off | T 0.992
+
+============================================================
+[Diagnostic] Epoch 3 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0000 | Min: -3.0709 | Max:  4.2711
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.6918 | Max:  6.3994
+Drug Global    | Mean: -0.0000 | Std:  0.9995 | Min: -3.0411 | Max:  3.7894
+============================================================
+
+  New best val model saved at epoch 3 (val R²=-0.2163)
+Fold 1 | Epoch   3 |    435s | LR 2.00e-05 | TrLoss 4.1695 | TrR2 +0.5474 | VaLoss 5.7727 | VaR2 -0.2163 | VaMAE 1.9806 | VaRMSE 2.4023 | VaPearson 0.6082 | Aux 1.0998 | patience 0/off | T 0.992
+
+============================================================
+[Diagnostic] Epoch 4 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0000 | Min: -2.9315 | Max:  4.4645
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.7761 | Max:  6.4295
+Drug Global    | Mean:  0.0000 | Std:  0.9996 | Min: -3.1537 | Max:  3.2654
+============================================================
+
+  New best val model saved at epoch 4 (val R²=-0.0874)
+Fold 1 | Epoch   4 |    465s | LR 2.00e-05 | TrLoss 3.5373 | TrR2 +0.6199 | VaLoss 5.0966 | VaR2 -0.0874 | VaMAE 1.8842 | VaRMSE 2.2714 | VaPearson 0.6491 | Aux 0.9492 | patience 0/off | T 0.991
+
+============================================================
+[Diagnostic] Epoch 5 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0000 | Min: -3.2576 | Max:  3.3831
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.6961 | Max:  6.4801
+Drug Global    | Mean:  0.0000 | Std:  0.9995 | Min: -2.8862 | Max:  3.4714
+============================================================
+
+  New best val model saved at epoch 5 (val R²=0.0106)
+  New best balance model saved at epoch 5 (rule=gated, score=0.6403)
+Fold 1 | Epoch   5 |    484s | LR 2.00e-05 | TrLoss 3.2443 | TrR2 +0.6509 | VaLoss 4.6846 | VaR2 +0.0106 | VaMAE 1.7863 | VaRMSE 2.1667 | VaPearson 0.6629 | Aux 0.9013 | patience 0/off | T 0.989
+
+============================================================
+[Diagnostic] Epoch 6 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0000 | Min: -3.1035 | Max:  4.0172
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.8367 | Max:  6.3113
+Drug Global    | Mean:  0.0000 | Std:  0.9995 | Min: -3.0457 | Max:  3.2297
+============================================================
+
+Fold 1 | Epoch   6 |    478s | LR 2.00e-05 | TrLoss 3.1291 | TrR2 +0.6669 | VaLoss 4.7876 | VaR2 -0.0268 | VaMAE 1.8354 | VaRMSE 2.2072 | VaPearson 0.6612 | Aux 0.8913 | patience 1/off | T 0.987
+
+============================================================
+[Diagnostic] Epoch 7 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0000 | Min: -3.1692 | Max:  4.5845
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.7683 | Max:  6.3367
+Drug Global    | Mean: -0.0000 | Std:  0.9996 | Min: -3.6502 | Max:  3.4212
+============================================================
+
+  New best val model saved at epoch 7 (val R²=0.1023)
+  New best balance model saved at epoch 7 (rule=gated, score=0.5778)
+Fold 1 | Epoch   7 |    464s | LR 2.00e-05 | TrLoss 3.0355 | TrR2 +0.6800 | VaLoss 4.1866 | VaR2 +0.1023 | VaMAE 1.7011 | VaRMSE 2.0638 | VaPearson 0.6568 | Aux 0.8853 | patience 0/off | T 0.986
+
+============================================================
+[Diagnostic] Epoch 8 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0000 | Min: -3.1210 | Max:  4.0571
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.6087 | Max:  6.3834
+Drug Global    | Mean:  0.0000 | Std:  0.9995 | Min: -4.0438 | Max:  2.8531
+============================================================
+
+Fold 1 | Epoch   8 |    464s | LR 2.00e-05 | TrLoss 2.9747 | TrR2 +0.6878 | VaLoss 4.5854 | VaR2 +0.0219 | VaMAE 1.7890 | VaRMSE 2.1543 | VaPearson 0.6653 | Aux 0.8706 | patience 1/off | T 0.985
+
+============================================================
+[Diagnostic] Epoch 9 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0000 | Min: -3.0351 | Max:  4.1465
+Global Gene    | Mean:  0.0000 | Std:  0.9995 | Min: -3.5589 | Max:  6.3645
+Drug Global    | Mean:  0.0000 | Std:  0.9996 | Min: -3.2821 | Max:  3.3849
+============================================================
+
+Fold 1 | Epoch   9 |    463s | LR 2.00e-05 | TrLoss 2.9024 | TrR2 +0.6952 | VaLoss 4.4684 | VaR2 +0.0458 | VaMAE 1.7593 | VaRMSE 2.1277 | VaPearson 0.6697 | Aux 0.8625 | patience 2/off | T 0.984
+
+============================================================
+[Diagnostic] Epoch 10 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0001 | Min: -3.3416 | Max:  3.8827
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.5034 | Max:  6.4295
+Drug Global    | Mean:  0.0000 | Std:  0.9996 | Min: -3.7280 | Max:  3.5010
+============================================================
+
+  New best val model saved at epoch 10 (val R²=0.2616)
+  New best balance model saved at epoch 10 (rule=gated, score=0.4427)
+Fold 1 | Epoch  10 |    463s | LR 2.00e-05 | TrLoss 2.7982 | TrR2 +0.7043 | VaLoss 3.5486 | VaR2 +0.2616 | VaMAE 1.5443 | VaRMSE 1.8718 | VaPearson 0.6461 | Aux 0.8384 | patience 0/off | T 0.982
+
+============================================================
+[Diagnostic] Epoch 11 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0000 | Min: -3.2510 | Max:  3.8005
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.8052 | Max:  6.3367
+Drug Global    | Mean:  0.0000 | Std:  0.9995 | Min: -2.9759 | Max:  3.0082
+============================================================
+
+Fold 1 | Epoch  11 |    463s | LR 2.00e-05 | TrLoss 2.7394 | TrR2 +0.7077 | VaLoss 3.6381 | VaR2 +0.2251 | VaMAE 1.5880 | VaRMSE 1.9175 | VaPearson 0.6573 | Aux 0.8255 | patience 1/off | T 0.980
+
+============================================================
+[Diagnostic] Epoch 12 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0001 | Min: -3.0823 | Max:  3.6598
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.8588 | Max:  6.2867
+Drug Global    | Mean: -0.0000 | Std:  0.9995 | Min: -3.1524 | Max:  3.4491
+============================================================
+
+  New best val model saved at epoch 12 (val R²=0.3350)
+  New best balance model saved at epoch 12 (rule=gated, score=0.3807)
+Fold 1 | Epoch  12 |    465s | LR 2.00e-05 | TrLoss 2.6614 | TrR2 +0.7157 | VaLoss 3.2231 | VaR2 +0.3350 | VaMAE 1.4630 | VaRMSE 1.7763 | VaPearson 0.6597 | Aux 0.8003 | patience 0/off | T 0.979
+
+============================================================
+[Diagnostic] Epoch 13 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0000 | Min: -2.9581 | Max:  3.5537
+Global Gene    | Mean: -0.0000 | Std:  0.9995 | Min: -3.7219 | Max:  6.4553
+Drug Global    | Mean:  0.0000 | Std:  0.9996 | Min: -2.9038 | Max:  3.5503
+============================================================
+
+Fold 1 | Epoch  13 |    466s | LR 2.00e-05 | TrLoss 2.6101 | TrR2 +0.7221 | VaLoss 3.3558 | VaR2 +0.2762 | VaMAE 1.5415 | VaRMSE 1.8532 | VaPearson 0.6711 | Aux 0.7876 | patience 1/off | T 0.978
+
+============================================================
+[Diagnostic] Epoch 14 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0001 | Min: -2.9964 | Max:  3.9696
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.7480 | Max:  6.2741
+Drug Global    | Mean: -0.0000 | Std:  0.9996 | Min: -2.9472 | Max:  3.3049
+============================================================
+
+Fold 1 | Epoch  14 |    467s | LR 2.00e-05 | TrLoss 2.6022 | TrR2 +0.7271 | VaLoss 3.4922 | VaR2 +0.2685 | VaMAE 1.5438 | VaRMSE 1.8630 | VaPearson 0.6715 | Aux 0.7858 | patience 2/off | T 0.977
+
+============================================================
+[Diagnostic] Epoch 15 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0001 | Min: -2.8678 | Max:  3.9372
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.7879 | Max:  6.3127
+Drug Global    | Mean:  0.0000 | Std:  0.9995 | Min: -2.9933 | Max:  3.3265
+============================================================
+
+Fold 1 | Epoch  15 |    464s | LR 2.00e-05 | TrLoss 2.5548 | TrR2 +0.7271 | VaLoss 3.3889 | VaR2 +0.2865 | VaMAE 1.5243 | VaRMSE 1.8399 | VaPearson 0.6688 | Aux 0.7667 | patience 3/off | T 0.976
+
+============================================================
+[Diagnostic] Epoch 16 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0001 | Min: -2.8747 | Max:  3.8759
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.7683 | Max:  6.3769
+Drug Global    | Mean: -0.0000 | Std:  0.9996 | Min: -3.4790 | Max:  3.3229
+============================================================
+
+Fold 1 | Epoch  16 |    466s | LR 2.00e-05 | TrLoss 2.5160 | TrR2 +0.7364 | VaLoss 3.4564 | VaR2 +0.2971 | VaMAE 1.5073 | VaRMSE 1.8262 | VaPearson 0.6749 | Aux 0.7591 | patience 4/off | T 0.975
+
+============================================================
+[Diagnostic] Epoch 17 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0001 | Min: -2.9513 | Max:  3.7143
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.7059 | Max:  6.2530
+Drug Global    | Mean:  0.0000 | Std:  0.9996 | Min: -3.2007 | Max:  3.3912
+============================================================
+
+Fold 1 | Epoch  17 |    461s | LR 2.00e-05 | TrLoss 2.4644 | TrR2 +0.7406 | VaLoss 3.8644 | VaR2 +0.1978 | VaMAE 1.6091 | VaRMSE 1.9509 | VaPearson 0.6783 | Aux 0.7448 | patience 5/off | T 0.975
+
+============================================================
+[Diagnostic] Epoch 18 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0001 | Min: -2.8715 | Max:  3.5141
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.6847 | Max:  6.4246
+Drug Global    | Mean:  0.0000 | Std:  0.9996 | Min: -3.6452 | Max:  3.4363
+============================================================
+
+  New best val model saved at epoch 18 (val R²=0.3685)
+  New best balance model saved at epoch 18 (rule=gated, score=0.3769)
+Fold 1 | Epoch  18 |    469s | LR 2.00e-05 | TrLoss 2.4165 | TrR2 +0.7454 | VaLoss 3.0747 | VaR2 +0.3685 | VaMAE 1.4252 | VaRMSE 1.7310 | VaPearson 0.6776 | Aux 0.7283 | patience 0/off | T 0.974
+
+============================================================
+[Diagnostic] Epoch 19 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0001 | Min: -2.8345 | Max:  3.5577
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.7283 | Max:  6.3645
+Drug Global    | Mean: -0.0000 | Std:  0.9996 | Min: -3.4894 | Max:  3.2945
+============================================================
+
+Fold 1 | Epoch  19 |    465s | LR 2.00e-05 | TrLoss 2.4079 | TrR2 +0.7430 | VaLoss 3.4944 | VaR2 +0.2772 | VaMAE 1.5339 | VaRMSE 1.8518 | VaPearson 0.6908 | Aux 0.7273 | patience 1/off | T 0.974
+
+============================================================
+[Diagnostic] Epoch 20 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0001 | Min: -2.7080 | Max:  3.4183
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.7683 | Max:  6.3635
+Drug Global    | Mean:  0.0000 | Std:  0.9997 | Min: -3.3721 | Max:  3.3808
+============================================================
+
+Fold 1 | Epoch  20 |    452s | LR 2.00e-05 | TrLoss 2.3557 | TrR2 +0.7492 | VaLoss 3.3777 | VaR2 +0.2659 | VaMAE 1.5517 | VaRMSE 1.8662 | VaPearson 0.6940 | Aux 0.7108 | patience 2/off | T 0.974
+SWA model saved (last 5 epochs averaged) -> D:\ProgramData\my_model\5_Result\1_main_models\RTX5090_v1_gc_c5_s43_20261107_0211\models\attention_drug_fold1_swa.pth
+Training history saved to D:\ProgramData\my_model\5_Result\1_main_models\RTX5090_v1_gc_c5_s43_20261107_0211\results\attention_drug_training_history.csv
+  best epoch : 18 (val R2=+0.3685) | best balance: epoch=18 rule=gated score=0.3769 | final learned temperature=['0.9737']
+Test metrics (best_val): R²=0.4628, RMSE=2.1102, Pearson=0.6913
+Test metrics (best_balance): R²=0.4628, RMSE=2.1102, Pearson=0.6913
+Test metrics (final): R²=0.4300, RMSE=2.1737, Pearson=0.6859
+Test metrics (swa): R²=0.4508, RMSE=2.1338, Pearson=0.6887
+
+============================================================
+Fold 2/5
+============================================================
+Train: 141202, Val: 17688, Test: 39716
+Valid samples: 141202
+Valid samples: 17688
+Valid samples: 39716
+  [sampler=grouped] drugs/batch=8  samples/drug=4  steps/epoch=4412
+  model params : total=2,799,109  trainable=2,799,109  init_temperature=['1.0000']
+
+============================================================
+[Diagnostic] Epoch 1 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0000 | Min: -3.4873 | Max:  5.6336
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.6073 | Max:  6.3949
+Drug Global    | Mean:  0.0000 | Std:  0.9995 | Min: -3.3439 | Max:  3.9247
+============================================================
+
+  New best val model saved at epoch 1 (val R²=-0.0734)
+Fold 2 | Epoch   1 |    467s | LR 2.00e-05 | TrLoss 10.2448 | TrR2 -0.2540 | VaLoss 10.6858 | VaR2 -0.0734 | VaMAE 2.7549 | VaRMSE 3.1934 | VaPearson 0.7210 | Aux 2.3238 | patience 0/off | T 0.992
+
+============================================================
+[Diagnostic] Epoch 2 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0000 | Min: -3.4669 | Max:  5.7570
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.7051 | Max:  6.3475
+Drug Global    | Mean:  0.0000 | Std:  0.9995 | Min: -3.0407 | Max:  3.4284
+============================================================
+
+  New best val model saved at epoch 2 (val R²=0.3054)
+  New best balance model saved at epoch 2 (rule=gated, score=0.0742)
+Fold 2 | Epoch   2 |    466s | LR 2.00e-05 | TrLoss 5.1857 | TrR2 +0.3796 | VaLoss 6.6317 | VaR2 +0.3054 | VaMAE 2.1427 | VaRMSE 2.5689 | VaPearson 0.7596 | Aux 1.3255 | patience 0/off | T 0.991
+
+============================================================
+[Diagnostic] Epoch 3 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0000 | Min: -3.7506 | Max:  4.7680
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.8588 | Max:  6.2890
+Drug Global    | Mean:  0.0000 | Std:  0.9994 | Min: -2.9390 | Max:  4.2362
+============================================================
+
+  New best val model saved at epoch 3 (val R²=0.4320)
+Fold 2 | Epoch   3 |    458s | LR 2.00e-05 | TrLoss 3.7356 | TrR2 +0.5473 | VaLoss 5.4865 | VaR2 +0.4320 | VaMAE 1.8934 | VaRMSE 2.3229 | VaPearson 0.7752 | Aux 0.9574 | patience 0/off | T 0.988
+
+============================================================
+[Diagnostic] Epoch 4 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0000 | Min: -3.6792 | Max:  4.5554
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.7784 | Max:  6.2556
+Drug Global    | Mean: -0.0000 | Std:  0.9995 | Min: -3.0466 | Max:  3.3521
+============================================================
+
+  New best val model saved at epoch 4 (val R²=0.4682)
+Fold 2 | Epoch   4 |    468s | LR 2.00e-05 | TrLoss 3.3527 | TrR2 +0.5999 | VaLoss 5.3370 | VaR2 +0.4682 | VaMAE 1.8296 | VaRMSE 2.2478 | VaPearson 0.7832 | Aux 0.8904 | patience 0/off | T 0.984
+
+============================================================
+[Diagnostic] Epoch 5 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0000 | Min: -3.3501 | Max:  4.3521
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.5307 | Max:  6.2835
+Drug Global    | Mean:  0.0000 | Std:  0.9996 | Min: -3.2938 | Max:  3.2639
+============================================================
+
+Fold 2 | Epoch   5 |    463s | LR 2.00e-05 | TrLoss 3.1196 | TrR2 +0.6267 | VaLoss 5.4181 | VaR2 +0.4499 | VaMAE 1.8912 | VaRMSE 2.2861 | VaPearson 0.7689 | Aux 0.8573 | patience 1/off | T 0.982
+
+============================================================
+[Diagnostic] Epoch 6 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0000 | Min: -3.6098 | Max:  4.3482
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.5481 | Max:  6.4246
+Drug Global    | Mean: -0.0000 | Std:  0.9995 | Min: -2.9626 | Max:  3.2490
+============================================================
+
+Fold 2 | Epoch   6 |    471s | LR 2.00e-05 | TrLoss 2.9875 | TrR2 +0.6432 | VaLoss 5.3778 | VaR2 +0.4633 | VaMAE 1.8473 | VaRMSE 2.2582 | VaPearson 0.7676 | Aux 0.8429 | patience 2/off | T 0.980
+
+============================================================
+[Diagnostic] Epoch 7 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0001 | Min: -3.4463 | Max:  3.9787
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.6001 | Max:  6.3602
+Drug Global    | Mean:  0.0000 | Std:  0.9995 | Min: -3.3583 | Max:  3.4777
+============================================================
+
+Fold 2 | Epoch   7 |    469s | LR 2.00e-05 | TrLoss 2.8957 | TrR2 +0.6544 | VaLoss 5.2290 | VaR2 +0.4668 | VaMAE 1.8518 | VaRMSE 2.2506 | VaPearson 0.7712 | Aux 0.8351 | patience 3/off | T 0.978
+
+============================================================
+[Diagnostic] Epoch 8 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0001 | Min: -3.6067 | Max:  4.0931
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.7059 | Max:  6.2645
+Drug Global    | Mean: -0.0000 | Std:  0.9997 | Min: -3.1834 | Max:  3.3825
+============================================================
+
+  New best val model saved at epoch 8 (val R²=0.5317)
+Fold 2 | Epoch   8 |    467s | LR 2.00e-05 | TrLoss 2.8368 | TrR2 +0.6599 | VaLoss 4.8774 | VaR2 +0.5317 | VaMAE 1.7052 | VaRMSE 2.1092 | VaPearson 0.7904 | Aux 0.8239 | patience 0/off | T 0.976
+
+============================================================
+[Diagnostic] Epoch 9 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0001 | Min: -3.7055 | Max:  3.9779
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.7076 | Max:  6.4246
+Drug Global    | Mean: -0.0000 | Std:  0.9996 | Min: -3.2594 | Max:  3.3488
+============================================================
+
+  New best val model saved at epoch 9 (val R²=0.5554)
+Fold 2 | Epoch   9 |    468s | LR 2.00e-05 | TrLoss 2.7311 | TrR2 +0.6752 | VaLoss 5.0275 | VaR2 +0.5554 | VaMAE 1.6495 | VaRMSE 2.0552 | VaPearson 0.7895 | Aux 0.7992 | patience 0/off | T 0.974
+
+============================================================
+[Diagnostic] Epoch 10 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0001 | Min: -3.6977 | Max:  4.0689
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.5235 | Max:  6.3635
+Drug Global    | Mean:  0.0000 | Std:  0.9995 | Min: -3.3225 | Max:  3.8446
+============================================================
+
+  New best val model saved at epoch 10 (val R²=0.5613)
+Fold 2 | Epoch  10 |    473s | LR 2.00e-05 | TrLoss 2.7060 | TrR2 +0.6819 | VaLoss 4.9626 | VaR2 +0.5613 | VaMAE 1.6390 | VaRMSE 2.0415 | VaPearson 0.7920 | Aux 0.7978 | patience 0/off | T 0.973
+
+============================================================
+[Diagnostic] Epoch 11 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0001 | Min: -3.6674 | Max:  3.9037
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.8052 | Max:  6.4553
+Drug Global    | Mean:  0.0000 | Std:  0.9995 | Min: -3.2412 | Max:  3.2514
+============================================================
+
+  New best val model saved at epoch 11 (val R²=0.5670)
+Fold 2 | Epoch  11 |    475s | LR 2.00e-05 | TrLoss 2.6443 | TrR2 +0.6855 | VaLoss 5.1269 | VaR2 +0.5670 | VaMAE 1.6228 | VaRMSE 2.0281 | VaPearson 0.7913 | Aux 0.7735 | patience 0/off | T 0.972
+
+============================================================
+[Diagnostic] Epoch 12 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0001 | Min: -3.7311 | Max:  4.1467
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.8588 | Max:  6.2867
+Drug Global    | Mean: -0.0000 | Std:  0.9993 | Min: -3.0685 | Max:  2.9108
+============================================================
+
+Fold 2 | Epoch  12 |    474s | LR 2.00e-05 | TrLoss 2.5562 | TrR2 +0.6963 | VaLoss 5.3453 | VaR2 +0.5637 | VaMAE 1.6289 | VaRMSE 2.0359 | VaPearson 0.7840 | Aux 0.7525 | patience 1/off | T 0.971
+
+============================================================
+[Diagnostic] Epoch 13 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0001 | Min: -3.9097 | Max:  4.1043
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.7919 | Max:  6.3994
+Drug Global    | Mean:  0.0000 | Std:  0.9996 | Min: -2.8444 | Max:  3.4380
+============================================================
+
+Fold 2 | Epoch  13 |    474s | LR 2.00e-05 | TrLoss 2.5184 | TrR2 +0.7032 | VaLoss 5.2714 | VaR2 +0.5613 | VaMAE 1.6396 | VaRMSE 2.0415 | VaPearson 0.7859 | Aux 0.7446 | patience 2/off | T 0.971
+
+============================================================
+[Diagnostic] Epoch 14 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0001 | Min: -3.9719 | Max:  4.1151
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.6524 | Max:  6.2653
+Drug Global    | Mean:  0.0000 | Std:  0.9996 | Min: -3.3390 | Max:  3.3249
+============================================================
+
+  New best val model saved at epoch 14 (val R²=0.5734)
+Fold 2 | Epoch  14 |    472s | LR 2.00e-05 | TrLoss 2.4958 | TrR2 +0.7054 | VaLoss 5.3495 | VaR2 +0.5734 | VaMAE 1.5983 | VaRMSE 2.0131 | VaPearson 0.7892 | Aux 0.7357 | patience 0/off | T 0.970
+
+============================================================
+[Diagnostic] Epoch 15 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0001 | Min: -3.5935 | Max:  4.2944
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.7879 | Max:  6.3636
+Drug Global    | Mean: -0.0000 | Std:  0.9994 | Min: -3.4101 | Max:  3.0788
+============================================================
+
+Fold 2 | Epoch  15 |    477s | LR 2.00e-05 | TrLoss 2.4633 | TrR2 +0.7065 | VaLoss 5.1132 | VaR2 +0.5627 | VaMAE 1.6375 | VaRMSE 2.0382 | VaPearson 0.7866 | Aux 0.7319 | patience 1/off | T 0.969
+
+============================================================
+[Diagnostic] Epoch 16 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0001 | Min: -3.6904 | Max:  4.1996
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.8588 | Max:  6.3595
+Drug Global    | Mean: -0.0000 | Std:  0.9995 | Min: -3.1723 | Max:  3.7124
+============================================================
+
+  New best val model saved at epoch 16 (val R²=0.5748)
+Fold 2 | Epoch  16 |    483s | LR 2.00e-05 | TrLoss 2.4514 | TrR2 +0.7131 | VaLoss 5.5914 | VaR2 +0.5748 | VaMAE 1.5876 | VaRMSE 2.0100 | VaPearson 0.7853 | Aux 0.7217 | patience 0/off | T 0.968
+
+============================================================
+[Diagnostic] Epoch 17 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0001 | Min: -3.7077 | Max:  4.2950
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.6298 | Max:  6.3949
+Drug Global    | Mean: -0.0000 | Std:  0.9995 | Min: -3.1248 | Max:  3.3368
+============================================================
+
+Fold 2 | Epoch  17 |    487s | LR 2.00e-05 | TrLoss 2.4272 | TrR2 +0.7161 | VaLoss 5.1068 | VaR2 +0.5571 | VaMAE 1.6399 | VaRMSE 2.0513 | VaPearson 0.7770 | Aux 0.7199 | patience 1/off | T 0.968
+
+============================================================
+[Diagnostic] Epoch 18 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0001 | Min: -3.7478 | Max:  4.4865
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.8367 | Max:  6.4082
+Drug Global    | Mean:  0.0000 | Std:  0.9996 | Min: -3.3983 | Max:  3.1526
+============================================================
+
+Fold 2 | Epoch  18 |    495s | LR 2.00e-05 | TrLoss 2.3751 | TrR2 +0.7198 | VaLoss 5.1844 | VaR2 +0.5299 | VaMAE 1.7213 | VaRMSE 2.1134 | VaPearson 0.7769 | Aux 0.7010 | patience 2/off | T 0.967
+
+============================================================
+[Diagnostic] Epoch 19 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0001 | Min: -3.7844 | Max:  4.1831
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.7283 | Max:  6.3645
+Drug Global    | Mean:  0.0000 | Std:  0.9997 | Min: -3.3729 | Max:  3.5543
+============================================================
+
+Fold 2 | Epoch  19 |    491s | LR 2.00e-05 | TrLoss 2.3798 | TrR2 +0.7186 | VaLoss 5.1734 | VaR2 +0.5448 | VaMAE 1.6853 | VaRMSE 2.0797 | VaPearson 0.7826 | Aux 0.7038 | patience 3/off | T 0.967
+
+============================================================
+[Diagnostic] Epoch 20 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0001 | Min: -3.8834 | Max:  4.2489
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.6266 | Max:  6.3635
+Drug Global    | Mean: -0.0000 | Std:  0.9997 | Min: -3.0460 | Max:  3.2960
+============================================================
+
+Fold 2 | Epoch  20 |    485s | LR 2.00e-05 | TrLoss 2.3541 | TrR2 +0.7246 | VaLoss 4.9696 | VaR2 +0.5626 | VaMAE 1.6353 | VaRMSE 2.0385 | VaPearson 0.7910 | Aux 0.6903 | patience 4/off | T 0.966
+SWA model saved (last 5 epochs averaged) -> D:\ProgramData\my_model\5_Result\1_main_models\RTX5090_v1_gc_c5_s43_20261107_0211\models\attention_drug_fold2_swa.pth
+Training history saved to D:\ProgramData\my_model\5_Result\1_main_models\RTX5090_v1_gc_c5_s43_20261107_0211\results\attention_drug_training_history.csv
+  best epoch : 16 (val R2=+0.5748) | best balance: epoch=2 rule=gated score=0.0742 | final learned temperature=['0.9662']
+Test metrics (best_val): R²=0.4429, RMSE=2.1528, Pearson=0.6680
+Test metrics (best_balance): R²=0.0808, RMSE=2.7652, Pearson=0.5230
+Test metrics (final): R²=0.4101, RMSE=2.2152, Pearson=0.6557
+Test metrics (swa): R²=0.4141, RMSE=2.2077, Pearson=0.6572
+
+============================================================
+Fold 3/5
+============================================================
+Train: 138454, Val: 20522, Test: 39630
+Valid samples: 138454
+Valid samples: 20522
+Valid samples: 39630
+  [sampler=grouped] drugs/batch=8  samples/drug=4  steps/epoch=4326
+  model params : total=2,799,109  trainable=2,799,109  init_temperature=['1.0000']
+
+============================================================
+[Diagnostic] Epoch 1 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0000 | Min: -3.3918 | Max:  5.7775
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.7051 | Max:  6.3949
+Drug Global    | Mean:  0.0000 | Std:  0.9995 | Min: -3.4309 | Max:  3.7332
+============================================================
+
+  New best val model saved at epoch 1 (val R²=0.2237)
+  New best balance model saved at epoch 1 (rule=gated, score=-0.5172)
+Fold 3 | Epoch   1 |    475s | LR 2.00e-05 | TrLoss 11.6289 | TrR2 -0.2935 | VaLoss 8.7857 | VaR2 +0.2237 | VaMAE 2.4497 | VaRMSE 2.9559 | VaPearson 0.6664 | Aux 2.5701 | patience 0/off | T 0.992
+
+============================================================
+[Diagnostic] Epoch 2 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0000 | Min: -3.5004 | Max:  6.4405
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.7108 | Max:  6.4328
+Drug Global    | Mean: -0.0000 | Std:  0.9994 | Min: -3.1522 | Max:  3.0606
+============================================================
+
+  New best val model saved at epoch 2 (val R²=0.4495)
+Fold 3 | Epoch   2 |    455s | LR 2.00e-05 | TrLoss 6.0228 | TrR2 +0.3283 | VaLoss 6.4007 | VaR2 +0.4495 | VaMAE 1.9607 | VaRMSE 2.4892 | VaPearson 0.6963 | Aux 1.5408 | patience 0/off | T 0.994
+
+============================================================
+[Diagnostic] Epoch 3 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0000 | Min: -3.4029 | Max:  5.5844
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.6918 | Max:  6.3994
+Drug Global    | Mean: -0.0000 | Std:  0.9994 | Min: -3.3782 | Max:  3.8041
+============================================================
+
+  New best val model saved at epoch 3 (val R²=0.5074)
+Fold 3 | Epoch   3 |    485s | LR 2.00e-05 | TrLoss 4.0725 | TrR2 +0.5499 | VaLoss 6.2271 | VaR2 +0.5074 | VaMAE 1.8196 | VaRMSE 2.3548 | VaPearson 0.7160 | Aux 1.0581 | patience 0/off | T 0.991
+
+============================================================
+[Diagnostic] Epoch 4 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0000 | Min: -3.7434 | Max:  5.6282
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.7761 | Max:  6.3778
+Drug Global    | Mean: -0.0000 | Std:  0.9995 | Min: -2.9807 | Max:  3.7951
+============================================================
+
+  New best val model saved at epoch 4 (val R²=0.5151)
+Fold 3 | Epoch   4 |    482s | LR 2.00e-05 | TrLoss 3.5964 | TrR2 +0.6037 | VaLoss 6.3837 | VaR2 +0.5151 | VaMAE 1.7827 | VaRMSE 2.3363 | VaPearson 0.7248 | Aux 0.9458 | patience 0/off | T 0.989
+
+============================================================
+[Diagnostic] Epoch 5 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0000 | Min: -3.6639 | Max:  5.0869
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.7356 | Max:  6.2670
+Drug Global    | Mean:  0.0000 | Std:  0.9995 | Min: -3.1671 | Max:  2.9417
+============================================================
+
+  New best val model saved at epoch 5 (val R²=0.5181)
+Fold 3 | Epoch   5 |    484s | LR 2.00e-05 | TrLoss 3.3483 | TrR2 +0.6309 | VaLoss 6.4161 | VaR2 +0.5181 | VaMAE 1.7641 | VaRMSE 2.3290 | VaPearson 0.7336 | Aux 0.9022 | patience 0/off | T 0.986
+
+============================================================
+[Diagnostic] Epoch 6 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0000 | Min: -3.4003 | Max:  5.0493
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.5481 | Max:  6.5325
+Drug Global    | Mean:  0.0000 | Std:  0.9995 | Min: -3.0686 | Max:  3.5523
+============================================================
+
+  New best val model saved at epoch 6 (val R²=0.5332)
+Fold 3 | Epoch   6 |    488s | LR 2.00e-05 | TrLoss 3.2177 | TrR2 +0.6503 | VaLoss 5.9708 | VaR2 +0.5332 | VaMAE 1.7514 | VaRMSE 2.2921 | VaPearson 0.7446 | Aux 0.8986 | patience 0/off | T 0.982
+
+============================================================
+[Diagnostic] Epoch 7 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0000 | Min: -3.7309 | Max:  5.8420
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.6918 | Max:  6.5325
+Drug Global    | Mean: -0.0000 | Std:  0.9996 | Min: -2.9110 | Max:  3.2632
+============================================================
+
+Fold 3 | Epoch   7 |    491s | LR 2.00e-05 | TrLoss 3.0586 | TrR2 +0.6693 | VaLoss 6.0288 | VaR2 +0.5287 | VaMAE 1.7580 | VaRMSE 2.3031 | VaPearson 0.7433 | Aux 0.8731 | patience 1/off | T 0.979
+
+============================================================
+[Diagnostic] Epoch 8 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0000 | Min: -3.4850 | Max:  5.6576
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.7356 | Max:  6.3068
+Drug Global    | Mean: -0.0000 | Std:  0.9995 | Min: -3.0929 | Max:  3.6905
+============================================================
+
+Fold 3 | Epoch   8 |    498s | LR 2.00e-05 | TrLoss 2.9362 | TrR2 +0.6815 | VaLoss 6.5610 | VaR2 +0.5170 | VaMAE 1.7505 | VaRMSE 2.3316 | VaPearson 0.7360 | Aux 0.8581 | patience 2/off | T 0.976
+
+============================================================
+[Diagnostic] Epoch 9 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0000 | Min: -3.2406 | Max:  5.5799
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.5199 | Max:  6.3645
+Drug Global    | Mean:  0.0000 | Std:  0.9995 | Min: -3.4662 | Max:  3.2291
+============================================================
+
+Fold 3 | Epoch   9 |    513s | LR 2.00e-05 | TrLoss 2.8293 | TrR2 +0.6957 | VaLoss 6.5222 | VaR2 +0.5207 | VaMAE 1.7453 | VaRMSE 2.3226 | VaPearson 0.7330 | Aux 0.8333 | patience 3/off | T 0.973
+
+============================================================
+[Diagnostic] Epoch 10 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0000 | Min: -3.2335 | Max:  5.6958
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.5585 | Max:  6.4801
+Drug Global    | Mean:  0.0000 | Std:  0.9993 | Min: -3.0431 | Max:  2.8228
+============================================================
+
+Fold 3 | Epoch  10 |    500s | LR 2.00e-05 | TrLoss 2.7959 | TrR2 +0.6994 | VaLoss 6.5559 | VaR2 +0.5201 | VaMAE 1.7546 | VaRMSE 2.3241 | VaPearson 0.7278 | Aux 0.8274 | patience 4/off | T 0.970
+
+============================================================
+[Diagnostic] Epoch 11 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0001 | Min: -3.3554 | Max:  5.1329
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.5930 | Max:  6.4553
+Drug Global    | Mean: -0.0000 | Std:  0.9996 | Min: -3.0882 | Max:  3.8502
+============================================================
+
+Fold 3 | Epoch  11 |    470s | LR 2.00e-05 | TrLoss 2.7091 | TrR2 +0.7072 | VaLoss 6.9612 | VaR2 +0.5070 | VaMAE 1.7513 | VaRMSE 2.3555 | VaPearson 0.7270 | Aux 0.8033 | patience 5/off | T 0.968
+
+============================================================
+[Diagnostic] Epoch 12 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0001 | Min: -3.3311 | Max:  5.4427
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.8588 | Max:  6.4428
+Drug Global    | Mean:  0.0000 | Std:  0.9996 | Min: -3.1697 | Max:  3.8056
+============================================================
+
+  Learning rate changed from 2.00e-05 to 1.00e-05
+Fold 3 | Epoch  12 |    504s | LR 1.00e-05 | TrLoss 2.6811 | TrR2 +0.7111 | VaLoss 6.7236 | VaR2 +0.5092 | VaMAE 1.7618 | VaRMSE 2.3503 | VaPearson 0.7327 | Aux 0.7985 | patience 6/off | T 0.967
+
+============================================================
+[Diagnostic] Epoch 13 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0001 | Min: -3.3488 | Max:  5.1759
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.8844 | Max:  6.4295
+Drug Global    | Mean: -0.0000 | Std:  0.9996 | Min: -2.7559 | Max:  3.2618
+============================================================
+
+Fold 3 | Epoch  13 |    494s | LR 1.00e-05 | TrLoss 2.5845 | TrR2 +0.7177 | VaLoss 6.6226 | VaR2 +0.5216 | VaMAE 1.7595 | VaRMSE 2.3205 | VaPearson 0.7289 | Aux 0.7707 | patience 7/off | T 0.967
+
+============================================================
+[Diagnostic] Epoch 14 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0001 | Min: -3.2254 | Max:  5.1966
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.6524 | Max:  6.3170
+Drug Global    | Mean: -0.0000 | Std:  0.9996 | Min: -3.1666 | Max:  3.2769
+============================================================
+
+Fold 3 | Epoch  14 |    500s | LR 1.00e-05 | TrLoss 2.5755 | TrR2 +0.7196 | VaLoss 6.4434 | VaR2 +0.5248 | VaMAE 1.7607 | VaRMSE 2.3127 | VaPearson 0.7305 | Aux 0.7696 | patience 8/off | T 0.965
+
+============================================================
+[Diagnostic] Epoch 15 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0001 | Min: -3.3866 | Max:  4.7956
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.7879 | Max:  6.3503
+Drug Global    | Mean: -0.0000 | Std:  0.9995 | Min: -3.4514 | Max:  3.2847
+============================================================
+
+Fold 3 | Epoch  15 |    498s | LR 1.00e-05 | TrLoss 2.5595 | TrR2 +0.7231 | VaLoss 6.9070 | VaR2 +0.5103 | VaMAE 1.7580 | VaRMSE 2.3477 | VaPearson 0.7291 | Aux 0.7640 | patience 9/off | T 0.965
+
+============================================================
+[Diagnostic] Epoch 16 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0001 | Min: -3.2169 | Max:  5.9369
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.7683 | Max:  6.2389
+Drug Global    | Mean: -0.0000 | Std:  0.9995 | Min: -3.0321 | Max:  3.1167
+============================================================
+
+Fold 3 | Epoch  16 |    498s | LR 1.00e-05 | TrLoss 2.5194 | TrR2 +0.7285 | VaLoss 6.7242 | VaR2 +0.5144 | VaMAE 1.7540 | VaRMSE 2.3380 | VaPearson 0.7313 | Aux 0.7515 | patience 10/off | T 0.964
+
+============================================================
+[Diagnostic] Epoch 17 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0001 | Min: -3.2554 | Max:  6.0157
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.7219 | Max:  6.3197
+Drug Global    | Mean: -0.0000 | Std:  0.9994 | Min: -3.1655 | Max:  3.1065
+============================================================
+
+Fold 3 | Epoch  17 |    497s | LR 1.00e-05 | TrLoss 2.4558 | TrR2 +0.7338 | VaLoss 6.5662 | VaR2 +0.5255 | VaMAE 1.7520 | VaRMSE 2.3111 | VaPearson 0.7351 | Aux 0.7340 | patience 11/off | T 0.964
+
+============================================================
+[Diagnostic] Epoch 18 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0001 | Min: -3.2491 | Max:  4.4530
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.8367 | Max:  6.4082
+Drug Global    | Mean:  0.0000 | Std:  0.9996 | Min: -3.3948 | Max:  3.2837
+============================================================
+
+  Learning rate changed from 1.00e-05 to 5.00e-06
+Fold 3 | Epoch  18 |    496s | LR 5.00e-06 | TrLoss 2.4994 | TrR2 +0.7296 | VaLoss 6.5672 | VaR2 +0.5188 | VaMAE 1.7654 | VaRMSE 2.3273 | VaPearson 0.7284 | Aux 0.7468 | patience 12/off | T 0.963
+
+============================================================
+[Diagnostic] Epoch 19 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0001 | Min: -3.3858 | Max:  4.2778
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.7283 | Max:  6.3645
+Drug Global    | Mean: -0.0000 | Std:  0.9996 | Min: -2.9709 | Max:  3.4538
+============================================================
+
+Fold 3 | Epoch  19 |    497s | LR 5.00e-06 | TrLoss 2.4645 | TrR2 +0.7331 | VaLoss 6.4994 | VaR2 +0.5218 | VaMAE 1.7626 | VaRMSE 2.3201 | VaPearson 0.7300 | Aux 0.7363 | patience 13/off | T 0.963
+
+============================================================
+[Diagnostic] Epoch 20 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0001 | Min: -3.2844 | Max:  5.5594
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.7683 | Max:  6.3208
+Drug Global    | Mean: -0.0000 | Std:  0.9995 | Min: -3.1433 | Max:  3.4150
+============================================================
+
+Fold 3 | Epoch  20 |    502s | LR 5.00e-06 | TrLoss 2.4517 | TrR2 +0.7366 | VaLoss 6.3000 | VaR2 +0.5131 | VaMAE 1.7896 | VaRMSE 2.3410 | VaPearson 0.7275 | Aux 0.7292 | patience 14/off | T 0.962
+SWA model saved (last 5 epochs averaged) -> D:\ProgramData\my_model\5_Result\1_main_models\RTX5090_v1_gc_c5_s43_20261107_0211\models\attention_drug_fold3_swa.pth
+Training history saved to D:\ProgramData\my_model\5_Result\1_main_models\RTX5090_v1_gc_c5_s43_20261107_0211\results\attention_drug_training_history.csv
+  best epoch : 6 (val R2=+0.5332) | best balance: epoch=1 rule=gated score=-0.5172 | final learned temperature=['0.9625']
+Test metrics (best_val): R²=0.1761, RMSE=2.1340, Pearson=0.5028
+Test metrics (best_balance): R²=-0.7715, RMSE=3.1292, Pearson=0.3390
+Test metrics (final): R²=0.2067, RMSE=2.0940, Pearson=0.5330
+Test metrics (swa): R²=0.2215, RMSE=2.0743, Pearson=0.5216
+
+============================================================
+Fold 4/5
+============================================================
+Train: 139082, Val: 19699, Test: 39825
+Valid samples: 139082
+Valid samples: 19699
+Valid samples: 39825
+  [sampler=grouped] drugs/batch=8  samples/drug=4  steps/epoch=4346
+  model params : total=2,799,109  trainable=2,799,109  init_temperature=['1.0000']
+
+============================================================
+[Diagnostic] Epoch 1 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0000 | Min: -3.1583 | Max:  5.2036
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.6266 | Max:  6.2401
+Drug Global    | Mean:  0.0000 | Std:  0.9995 | Min: -3.0569 | Max:  4.1970
+============================================================
+
+  New best val model saved at epoch 1 (val R²=-1.4302)
+Fold 4 | Epoch   1 |    485s | LR 2.00e-05 | TrLoss 10.6230 | TrR2 -0.0944 | VaLoss 11.9931 | VaR2 -1.4302 | VaMAE 2.8573 | VaRMSE 3.4631 | VaPearson 0.4402 | Aux 2.3643 | patience 0/off | T 0.993
+
+============================================================
+[Diagnostic] Epoch 2 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0000 | Min: -3.4524 | Max:  5.1505
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.7567 | Max:  6.2670
+Drug Global    | Mean: -0.0000 | Std:  0.9994 | Min: -3.7538 | Max:  3.1108
+============================================================
+
+  New best val model saved at epoch 2 (val R²=-0.4925)
+Fold 4 | Epoch   2 |    487s | LR 2.00e-05 | TrLoss 5.4416 | TrR2 +0.4385 | VaLoss 7.3903 | VaR2 -0.4925 | VaMAE 2.1288 | VaRMSE 2.7139 | VaPearson 0.4709 | Aux 1.4022 | patience 0/off | T 0.993
+
+============================================================
+[Diagnostic] Epoch 3 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0000 | Min: -3.6769 | Max:  5.2582
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.7567 | Max:  6.3994
+Drug Global    | Mean:  0.0000 | Std:  0.9995 | Min: -3.3250 | Max:  3.1488
+============================================================
+
+Fold 4 | Epoch   3 |    489s | LR 2.00e-05 | TrLoss 3.9260 | TrR2 +0.5992 | VaLoss 8.6530 | VaR2 -0.7588 | VaMAE 2.3119 | VaRMSE 2.9461 | VaPearson 0.5065 | Aux 1.0346 | patience 1/off | T 0.992
+
+============================================================
+[Diagnostic] Epoch 4 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0000 | Min: -3.5214 | Max:  4.8483
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.7784 | Max:  6.3113
+Drug Global    | Mean: -0.0000 | Std:  0.9996 | Min: -3.4064 | Max:  3.1647
+============================================================
+
+Fold 4 | Epoch   4 |    497s | LR 2.00e-05 | TrLoss 3.4866 | TrR2 +0.6402 | VaLoss 7.4494 | VaR2 -0.5199 | VaMAE 2.1961 | VaRMSE 2.7388 | VaPearson 0.5499 | Aux 0.9452 | patience 2/off | T 0.988
+
+============================================================
+[Diagnostic] Epoch 5 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0000 | Min: -3.5379 | Max:  5.1233
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.5682 | Max:  6.3602
+Drug Global    | Mean: -0.0000 | Std:  0.9996 | Min: -2.9372 | Max:  3.0922
+============================================================
+
+  New best val model saved at epoch 5 (val R²=-0.2362)
+Fold 4 | Epoch   5 |    498s | LR 2.00e-05 | TrLoss 3.2763 | TrR2 +0.6644 | VaLoss 6.0150 | VaR2 -0.2362 | VaMAE 1.9913 | VaRMSE 2.4699 | VaPearson 0.5727 | Aux 0.9270 | patience 0/off | T 0.985
+
+============================================================
+[Diagnostic] Epoch 6 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0000 | Min: -3.3952 | Max:  4.7085
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.5481 | Max:  6.3490
+Drug Global    | Mean: -0.0000 | Std:  0.9996 | Min: -3.5625 | Max:  4.6632
+============================================================
+
+Fold 4 | Epoch   6 |    502s | LR 2.00e-05 | TrLoss 3.1629 | TrR2 +0.6806 | VaLoss 6.9876 | VaR2 -0.4333 | VaMAE 2.1303 | VaRMSE 2.6596 | VaPearson 0.5771 | Aux 0.9118 | patience 1/off | T 0.983
+
+============================================================
+[Diagnostic] Epoch 7 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0000 | Min: -3.3934 | Max:  4.8017
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.7683 | Max:  6.3475
+Drug Global    | Mean:  0.0000 | Std:  0.9995 | Min: -3.5358 | Max:  2.7924
+============================================================
+
+Fold 4 | Epoch   7 |    497s | LR 2.00e-05 | TrLoss 3.0458 | TrR2 +0.6950 | VaLoss 6.1750 | VaR2 -0.2715 | VaMAE 1.9996 | VaRMSE 2.5049 | VaPearson 0.5839 | Aux 0.8947 | patience 2/off | T 0.982
+
+============================================================
+[Diagnostic] Epoch 8 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0000 | Min: -3.2786 | Max:  4.5500
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.5296 | Max:  6.3208
+Drug Global    | Mean:  0.0000 | Std:  0.9996 | Min: -3.0977 | Max:  3.0554
+============================================================
+
+  New best val model saved at epoch 8 (val R²=-0.0903)
+Fold 4 | Epoch   8 |    499s | LR 2.00e-05 | TrLoss 2.9693 | TrR2 +0.7022 | VaLoss 5.3068 | VaR2 -0.0903 | VaMAE 1.8541 | VaRMSE 2.3196 | VaPearson 0.5984 | Aux 0.8805 | patience 0/off | T 0.980
+
+============================================================
+[Diagnostic] Epoch 9 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0000 | Min: -3.2745 | Max:  4.9693
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.6296 | Max:  6.3706
+Drug Global    | Mean:  0.0000 | Std:  0.9996 | Min: -3.0196 | Max:  3.5839
+============================================================
+
+Fold 4 | Epoch   9 |    498s | LR 2.00e-05 | TrLoss 2.9247 | TrR2 +0.7065 | VaLoss 5.3666 | VaR2 -0.1094 | VaMAE 1.8686 | VaRMSE 2.3398 | VaPearson 0.5855 | Aux 0.8764 | patience 1/off | T 0.979
+
+============================================================
+[Diagnostic] Epoch 10 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0001 | Min: -3.4872 | Max:  5.3185
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.6746 | Max:  6.3681
+Drug Global    | Mean: -0.0000 | Std:  0.9996 | Min: -3.6164 | Max:  3.4826
+============================================================
+
+  New best val model saved at epoch 10 (val R²=0.0893)
+  New best balance model saved at epoch 10 (rule=gated, score=0.6277)
+Fold 4 | Epoch  10 |    497s | LR 2.00e-05 | TrLoss 2.8307 | TrR2 +0.7171 | VaLoss 4.3927 | VaR2 +0.0893 | VaMAE 1.7056 | VaRMSE 2.1199 | VaPearson 0.6024 | Aux 0.8564 | patience 0/off | T 0.978
+
+============================================================
+[Diagnostic] Epoch 11 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0001 | Min: -3.3997 | Max:  4.7941
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.8052 | Max:  6.3367
+Drug Global    | Mean: -0.0000 | Std:  0.9997 | Min: -3.5057 | Max:  3.2235
+============================================================
+
+Fold 4 | Epoch  11 |    500s | LR 2.00e-05 | TrLoss 2.7685 | TrR2 +0.7234 | VaLoss 5.1658 | VaR2 -0.0714 | VaMAE 1.8424 | VaRMSE 2.2994 | VaPearson 0.6074 | Aux 0.8370 | patience 1/off | T 0.977
+
+============================================================
+[Diagnostic] Epoch 12 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0001 | Min: -3.6605 | Max:  4.9906
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.8588 | Max:  6.4428
+Drug Global    | Mean:  0.0000 | Std:  0.9996 | Min: -3.4327 | Max:  2.9864
+============================================================
+
+  New best val model saved at epoch 12 (val R²=0.1348)
+  New best balance model saved at epoch 12 (rule=gated, score=0.5935)
+Fold 4 | Epoch  12 |    497s | LR 2.00e-05 | TrLoss 2.7145 | TrR2 +0.7283 | VaLoss 4.2037 | VaR2 +0.1348 | VaMAE 1.6628 | VaRMSE 2.0663 | VaPearson 0.6012 | Aux 0.8228 | patience 0/off | T 0.976
+
+============================================================
+[Diagnostic] Epoch 13 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0001 | Min: -3.5171 | Max:  4.8455
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.8844 | Max:  6.4553
+Drug Global    | Mean:  0.0000 | Std:  0.9996 | Min: -3.6833 | Max:  3.1114
+============================================================
+
+Fold 4 | Epoch  13 |    496s | LR 2.00e-05 | TrLoss 2.6557 | TrR2 +0.7337 | VaLoss 4.7835 | VaR2 +0.0092 | VaMAE 1.7667 | VaRMSE 2.2112 | VaPearson 0.5997 | Aux 0.8094 | patience 1/off | T 0.975
+
+============================================================
+[Diagnostic] Epoch 14 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0001 | Min: -3.4568 | Max:  5.2622
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.6524 | Max:  6.3170
+Drug Global    | Mean: -0.0000 | Std:  0.9996 | Min: -3.4097 | Max:  3.4284
+============================================================
+
+Fold 4 | Epoch  14 |    502s | LR 2.00e-05 | TrLoss 2.6356 | TrR2 +0.7378 | VaLoss 4.8138 | VaR2 +0.0087 | VaMAE 1.7662 | VaRMSE 2.2118 | VaPearson 0.6101 | Aux 0.8013 | patience 2/off | T 0.974
+
+============================================================
+[Diagnostic] Epoch 15 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0001 | Min: -3.5500 | Max:  5.0984
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.7879 | Max:  6.2995
+Drug Global    | Mean:  0.0000 | Std:  0.9994 | Min: -3.4127 | Max:  2.9410
+============================================================
+
+  New best val model saved at epoch 15 (val R²=0.1383)
+Fold 4 | Epoch  15 |    502s | LR 2.00e-05 | TrLoss 2.5777 | TrR2 +0.7421 | VaLoss 4.1558 | VaR2 +0.1383 | VaMAE 1.6513 | VaRMSE 2.0622 | VaPearson 0.6170 | Aux 0.7886 | patience 0/off | T 0.973
+
+============================================================
+[Diagnostic] Epoch 16 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0001 | Min: -3.8524 | Max:  5.1482
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.8367 | Max:  6.3421
+Drug Global    | Mean:  0.0000 | Std:  0.9996 | Min: -3.3093 | Max:  2.9527
+============================================================
+
+Fold 4 | Epoch  16 |    503s | LR 2.00e-05 | TrLoss 2.5458 | TrR2 +0.7459 | VaLoss 4.4781 | VaR2 +0.0763 | VaMAE 1.7064 | VaRMSE 2.1350 | VaPearson 0.6019 | Aux 0.7709 | patience 1/off | T 0.972
+
+============================================================
+[Diagnostic] Epoch 17 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0001 | Min: -3.8458 | Max:  5.2333
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.7059 | Max:  6.3421
+Drug Global    | Mean: -0.0000 | Std:  0.9995 | Min: -3.0236 | Max:  3.0848
+============================================================
+
+Fold 4 | Epoch  17 |    506s | LR 2.00e-05 | TrLoss 2.5005 | TrR2 +0.7511 | VaLoss 4.3450 | VaR2 +0.1109 | VaMAE 1.6762 | VaRMSE 2.0947 | VaPearson 0.6155 | Aux 0.7619 | patience 2/off | T 0.972
+
+============================================================
+[Diagnostic] Epoch 18 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0001 | Min: -3.8294 | Max:  5.3193
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.8367 | Max:  6.4082
+Drug Global    | Mean:  0.0000 | Std:  0.9997 | Min: -3.0095 | Max:  3.4171
+============================================================
+
+Fold 4 | Epoch  18 |    504s | LR 2.00e-05 | TrLoss 2.4866 | TrR2 +0.7514 | VaLoss 5.5806 | VaR2 -0.1502 | VaMAE 1.9052 | VaRMSE 2.3824 | VaPearson 0.6064 | Aux 0.7560 | patience 3/off | T 0.971
+
+============================================================
+[Diagnostic] Epoch 19 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0001 | Min: -3.7093 | Max:  5.5352
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.7283 | Max:  6.3018
+Drug Global    | Mean:  0.0000 | Std:  0.9996 | Min: -3.0448 | Max:  3.4350
+============================================================
+
+  New best val model saved at epoch 19 (val R²=0.1673)
+  New best balance model saved at epoch 19 (rule=gated, score=0.5906)
+Fold 4 | Epoch  19 |    505s | LR 2.00e-05 | TrLoss 2.4204 | TrR2 +0.7579 | VaLoss 4.1639 | VaR2 +0.1673 | VaMAE 1.6186 | VaRMSE 2.0271 | VaPearson 0.6084 | Aux 0.7342 | patience 0/off | T 0.970
+
+============================================================
+[Diagnostic] Epoch 20 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0001 | Min: -3.5829 | Max:  5.3802
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.5561 | Max:  6.3834
+Drug Global    | Mean: -0.0000 | Std:  0.9996 | Min: -3.9830 | Max:  4.6365
+============================================================
+
+Fold 4 | Epoch  20 |    501s | LR 2.00e-05 | TrLoss 2.3963 | TrR2 +0.7602 | VaLoss 4.8496 | VaR2 -0.0004 | VaMAE 1.7738 | VaRMSE 2.2220 | VaPearson 0.6147 | Aux 0.7309 | patience 1/off | T 0.970
+SWA model saved (last 5 epochs averaged) -> D:\ProgramData\my_model\5_Result\1_main_models\RTX5090_v1_gc_c5_s43_20261107_0211\models\attention_drug_fold4_swa.pth
+Training history saved to D:\ProgramData\my_model\5_Result\1_main_models\RTX5090_v1_gc_c5_s43_20261107_0211\results\attention_drug_training_history.csv
+  best epoch : 19 (val R2=+0.1673) | best balance: epoch=19 rule=gated score=0.5906 | final learned temperature=['0.9698']
+Test metrics (best_val): R²=0.2644, RMSE=2.0850, Pearson=0.5355
+Test metrics (best_balance): R²=0.2644, RMSE=2.0850, Pearson=0.5355
+Test metrics (final): R²=0.2135, RMSE=2.1560, Pearson=0.5228
+Test metrics (swa): R²=0.2384, RMSE=2.1216, Pearson=0.5297
+
+============================================================
+Fold 5/5
+============================================================
+Train: 139367, Val: 19533, Test: 39706
+Valid samples: 139367
+Valid samples: 19533
+Valid samples: 39706
+  [sampler=grouped] drugs/batch=8  samples/drug=4  steps/epoch=4355
+  model params : total=2,799,109  trainable=2,799,109  init_temperature=['1.0000']
+
+============================================================
+[Diagnostic] Epoch 1 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0000 | Min: -3.1558 | Max:  4.4305
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.6218 | Max:  6.3636
+Drug Global    | Mean:  0.0000 | Std:  0.9996 | Min: -3.4651 | Max:  3.5173
+============================================================
+
+  New best val model saved at epoch 1 (val R²=-1.0289)
+Fold 5 | Epoch   1 |    468s | LR 2.00e-05 | TrLoss 10.9949 | TrR2 -0.2786 | VaLoss 10.8609 | VaR2 -1.0289 | VaMAE 2.7584 | VaRMSE 3.2955 | VaPearson 0.2749 | Aux 2.4597 | patience 0/off | T 0.992
+
+============================================================
+[Diagnostic] Epoch 2 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0000 | Min: -3.0101 | Max:  4.1711
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.7919 | Max:  6.3475
+Drug Global    | Mean: -0.0000 | Std:  0.9995 | Min: -4.2283 | Max:  3.1763
+============================================================
+
+  New best val model saved at epoch 2 (val R²=-0.3592)
+Fold 5 | Epoch   2 |    494s | LR 2.00e-05 | TrLoss 5.6105 | TrR2 +0.3591 | VaLoss 7.3196 | VaR2 -0.3592 | VaMAE 2.1622 | VaRMSE 2.6973 | VaPearson 0.3590 | Aux 1.4512 | patience 0/off | T 0.993
+
+============================================================
+[Diagnostic] Epoch 3 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0000 | Min: -3.7960 | Max:  3.9954
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.8588 | Max:  6.3994
+Drug Global    | Mean: -0.0000 | Std:  0.9995 | Min: -3.7141 | Max:  3.2828
+============================================================
+
+  New best val model saved at epoch 3 (val R²=-0.1194)
+Fold 5 | Epoch   3 |    511s | LR 2.00e-05 | TrLoss 3.8740 | TrR2 +0.5501 | VaLoss 6.0186 | VaR2 -0.1194 | VaMAE 1.9499 | VaRMSE 2.4478 | VaPearson 0.4101 | Aux 1.0095 | patience 0/off | T 0.992
+
+============================================================
+[Diagnostic] Epoch 4 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0000 | Min: -3.3664 | Max:  3.6631
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.7761 | Max:  6.4295
+Drug Global    | Mean:  0.0000 | Std:  0.9996 | Min: -4.0869 | Max:  3.2113
+============================================================
+
+Fold 5 | Epoch   4 |    516s | LR 2.00e-05 | TrLoss 3.4376 | TrR2 +0.6036 | VaLoss 6.3855 | VaR2 -0.2026 | VaMAE 2.0099 | VaRMSE 2.5372 | VaPearson 0.4232 | Aux 0.9174 | patience 1/off | T 0.991
+
+============================================================
+[Diagnostic] Epoch 5 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0000 | Min: -3.3646 | Max:  3.4583
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.7683 | Max:  6.1787
+Drug Global    | Mean: -0.0000 | Std:  0.9994 | Min: -3.9807 | Max:  3.1602
+============================================================
+
+  New best val model saved at epoch 5 (val R²=-0.1134)
+Fold 5 | Epoch   5 |    513s | LR 2.00e-05 | TrLoss 3.1761 | TrR2 +0.6358 | VaLoss 5.8724 | VaR2 -0.1134 | VaMAE 1.9376 | VaRMSE 2.4413 | VaPearson 0.4623 | Aux 0.8845 | patience 0/off | T 0.988
+
+============================================================
+[Diagnostic] Epoch 6 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0000 | Min: -3.6715 | Max:  3.4039
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.8367 | Max:  6.3994
+Drug Global    | Mean:  0.0000 | Std:  0.9995 | Min: -3.5548 | Max:  2.9047
+============================================================
+
+Fold 5 | Epoch   6 |    508s | LR 2.00e-05 | TrLoss 3.0682 | TrR2 +0.6533 | VaLoss 6.6612 | VaR2 -0.2740 | VaMAE 2.0887 | VaRMSE 2.6114 | VaPearson 0.4723 | Aux 0.8739 | patience 1/off | T 0.985
+
+============================================================
+[Diagnostic] Epoch 7 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0000 | Min: -3.6761 | Max:  4.0708
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.7219 | Max:  6.3834
+Drug Global    | Mean: -0.0000 | Std:  0.9996 | Min: -3.1970 | Max:  3.6461
+============================================================
+
+  New best val model saved at epoch 7 (val R²=-0.0775)
+Fold 5 | Epoch   7 |    506s | LR 2.00e-05 | TrLoss 2.9655 | TrR2 +0.6681 | VaLoss 5.5655 | VaR2 -0.0775 | VaMAE 1.9216 | VaRMSE 2.4015 | VaPearson 0.4919 | Aux 0.8638 | patience 0/off | T 0.983
+
+============================================================
+[Diagnostic] Epoch 8 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0001 | Min: -3.4395 | Max:  3.3451
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.7059 | Max:  6.5325
+Drug Global    | Mean: -0.0000 | Std:  0.9995 | Min: -3.5356 | Max:  3.6823
+============================================================
+
+Fold 5 | Epoch   8 |    503s | LR 2.00e-05 | TrLoss 2.9024 | TrR2 +0.6731 | VaLoss 5.7588 | VaR2 -0.1151 | VaMAE 1.9419 | VaRMSE 2.4431 | VaPearson 0.4860 | Aux 0.8535 | patience 1/off | T 0.982
+
+============================================================
+[Diagnostic] Epoch 9 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0001 | Min: -3.5773 | Max:  3.5448
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.7784 | Max:  6.4246
+Drug Global    | Mean:  0.0000 | Std:  0.9995 | Min: -3.5801 | Max:  3.6574
+============================================================
+
+  New best val model saved at epoch 9 (val R²=0.0402)
+  New best balance model saved at epoch 9 (rule=gated, score=0.6425)
+Fold 5 | Epoch   9 |    501s | LR 2.00e-05 | TrLoss 2.8273 | TrR2 +0.6827 | VaLoss 5.0171 | VaR2 +0.0402 | VaMAE 1.8053 | VaRMSE 2.2666 | VaPearson 0.4891 | Aux 0.8425 | patience 0/off | T 0.980
+
+============================================================
+[Diagnostic] Epoch 10 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0001 | Min: -3.5306 | Max:  3.9685
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.6183 | Max:  6.4428
+Drug Global    | Mean:  0.0000 | Std:  0.9995 | Min: -3.5641 | Max:  3.0883
+============================================================
+
+  New best val model saved at epoch 10 (val R²=0.0606)
+  New best balance model saved at epoch 10 (rule=gated, score=0.6268)
+Fold 5 | Epoch  10 |    502s | LR 2.00e-05 | TrLoss 2.7468 | TrR2 +0.6873 | VaLoss 4.9304 | VaR2 +0.0606 | VaMAE 1.7888 | VaRMSE 2.2424 | VaPearson 0.4945 | Aux 0.8270 | patience 0/off | T 0.980
+
+============================================================
+[Diagnostic] Epoch 11 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0001 | Min: -3.4022 | Max:  3.6553
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.8052 | Max:  6.3284
+Drug Global    | Mean:  0.0000 | Std:  0.9996 | Min: -3.2522 | Max:  2.9956
+============================================================
+
+  New best val model saved at epoch 11 (val R²=0.1007)
+  New best balance model saved at epoch 11 (rule=gated, score=0.5981)
+Fold 5 | Epoch  11 |    503s | LR 2.00e-05 | TrLoss 2.6672 | TrR2 +0.6988 | VaLoss 4.6913 | VaR2 +0.1007 | VaMAE 1.7521 | VaRMSE 2.1940 | VaPearson 0.4851 | Aux 0.8053 | patience 0/off | T 0.978
+
+============================================================
+[Diagnostic] Epoch 12 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0001 | Min: -3.5440 | Max:  3.5731
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.7076 | Max:  6.4428
+Drug Global    | Mean: -0.0000 | Std:  0.9996 | Min: -3.7743 | Max:  3.7746
+============================================================
+
+  New best val model saved at epoch 12 (val R²=0.1819)
+  New best balance model saved at epoch 12 (rule=gated, score=0.5212)
+Fold 5 | Epoch  12 |    501s | LR 2.00e-05 | TrLoss 2.6436 | TrR2 +0.7031 | VaLoss 4.5098 | VaR2 +0.1819 | VaMAE 1.6899 | VaRMSE 2.0926 | VaPearson 0.4940 | Aux 0.8017 | patience 0/off | T 0.976
+
+============================================================
+[Diagnostic] Epoch 13 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0001 | Min: -3.5818 | Max:  3.7582
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.8844 | Max:  6.4295
+Drug Global    | Mean:  0.0000 | Std:  0.9996 | Min: -3.8220 | Max:  2.8389
+============================================================
+
+Fold 5 | Epoch  13 |    498s | LR 2.00e-05 | TrLoss 2.6013 | TrR2 +0.7053 | VaLoss 4.8027 | VaR2 +0.0801 | VaMAE 1.7614 | VaRMSE 2.2190 | VaPearson 0.4846 | Aux 0.7884 | patience 1/off | T 0.975
+
+============================================================
+[Diagnostic] Epoch 14 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0001 | Min: -3.6914 | Max:  3.7764
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.6524 | Max:  6.2670
+Drug Global    | Mean: -0.0000 | Std:  0.9996 | Min: -3.6731 | Max:  3.0217
+============================================================
+
+Fold 5 | Epoch  14 |    499s | LR 2.00e-05 | TrLoss 2.5790 | TrR2 +0.7147 | VaLoss 4.6745 | VaR2 +0.1090 | VaMAE 1.7431 | VaRMSE 2.1839 | VaPearson 0.4909 | Aux 0.7895 | patience 2/off | T 0.974
+
+============================================================
+[Diagnostic] Epoch 15 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0001 | Min: -3.3641 | Max:  3.6036
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.6583 | Max:  6.3769
+Drug Global    | Mean:  0.0000 | Std:  0.9996 | Min: -3.6077 | Max:  3.8167
+============================================================
+
+Fold 5 | Epoch  15 |    496s | LR 2.00e-05 | TrLoss 2.5113 | TrR2 +0.7174 | VaLoss 4.7480 | VaR2 +0.1127 | VaMAE 1.7435 | VaRMSE 2.1792 | VaPearson 0.4844 | Aux 0.7644 | patience 3/off | T 0.974
+
+============================================================
+[Diagnostic] Epoch 16 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0001 | Min: -3.3199 | Max:  3.3053
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.6524 | Max:  6.3778
+Drug Global    | Mean: -0.0000 | Std:  0.9996 | Min: -3.0639 | Max:  3.3755
+============================================================
+
+Fold 5 | Epoch  16 |    496s | LR 2.00e-05 | TrLoss 2.4485 | TrR2 +0.7214 | VaLoss 4.3236 | VaR2 +0.1718 | VaMAE 1.6971 | VaRMSE 2.1055 | VaPearson 0.5190 | Aux 0.7470 | patience 4/off | T 0.973
+
+============================================================
+[Diagnostic] Epoch 17 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean:  0.0000 | Std:  1.0001 | Min: -3.2224 | Max:  3.3135
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.7219 | Max:  6.3949
+Drug Global    | Mean:  0.0000 | Std:  0.9997 | Min: -3.1004 | Max:  3.7906
+============================================================
+
+Fold 5 | Epoch  17 |    491s | LR 2.00e-05 | TrLoss 2.4365 | TrR2 +0.7300 | VaLoss 4.5725 | VaR2 +0.1311 | VaMAE 1.7307 | VaRMSE 2.1565 | VaPearson 0.5013 | Aux 0.7421 | patience 5/off | T 0.972
+
+============================================================
+[Diagnostic] Epoch 18 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0001 | Min: -3.7525 | Max:  3.7067
+Global Gene    | Mean:  0.0000 | Std:  0.9996 | Min: -3.7480 | Max:  6.4246
+Drug Global    | Mean: -0.0000 | Std:  0.9995 | Min: -3.0185 | Max:  3.4968
+============================================================
+
+  Learning rate changed from 2.00e-05 to 1.00e-05
+Fold 5 | Epoch  18 |    495s | LR 1.00e-05 | TrLoss 2.3576 | TrR2 +0.7345 | VaLoss 4.3672 | VaR2 +0.1714 | VaMAE 1.7042 | VaRMSE 2.1060 | VaPearson 0.5052 | Aux 0.7158 | patience 6/off | T 0.972
+
+============================================================
+[Diagnostic] Epoch 19 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0001 | Min: -3.4737 | Max:  3.8610
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.7283 | Max:  6.3834
+Drug Global    | Mean: -0.0000 | Std:  0.9997 | Min: -3.0883 | Max:  3.4360
+============================================================
+
+Fold 5 | Epoch  19 |    494s | LR 1.00e-05 | TrLoss 2.3620 | TrR2 +0.7351 | VaLoss 4.5112 | VaR2 +0.1391 | VaMAE 1.7297 | VaRMSE 2.1467 | VaPearson 0.5061 | Aux 0.7196 | patience 7/off | T 0.972
+
+============================================================
+[Diagnostic] Epoch 20 - Feature distribution after LayerNorm
+============================================================
+Gene Pooled    | Mean: -0.0000 | Std:  1.0001 | Min: -3.1864 | Max:  3.5478
+Global Gene    | Mean: -0.0000 | Std:  0.9996 | Min: -3.7683 | Max:  6.3208
+Drug Global    | Mean:  0.0000 | Std:  0.9996 | Min: -3.1416 | Max:  3.2573
+============================================================
+
+Fold 5 | Epoch  20 |    494s | LR 1.00e-05 | TrLoss 2.3215 | TrR2 +0.7401 | VaLoss 4.4641 | VaR2 +0.1505 | VaMAE 1.7186 | VaRMSE 2.1324 | VaPearson 0.5054 | Aux 0.7083 | patience 8/off | T 0.971
+SWA model saved (last 5 epochs averaged) -> D:\ProgramData\my_model\5_Result\1_main_models\RTX5090_v1_gc_c5_s43_20261107_0211\models\attention_drug_fold5_swa.pth
+Training history saved to D:\ProgramData\my_model\5_Result\1_main_models\RTX5090_v1_gc_c5_s43_20261107_0211\results\attention_drug_training_history.csv
+  best epoch : 12 (val R2=+0.1819) | best balance: epoch=12 rule=gated score=0.5212 | final learned temperature=['0.9714']
+Test metrics (best_val): R²=0.4895, RMSE=2.3435, Pearson=0.7122
+Test metrics (best_balance): R²=0.4895, RMSE=2.3435, Pearson=0.7122
+Test metrics (final): R²=0.5140, RMSE=2.2865, Pearson=0.7259
+Test metrics (swa): R²=0.5122, RMSE=2.2908, Pearson=0.7243
+
+OOF (best_val, 198606 samples, 242 drugs): R²=+0.4087  RMSE=2.1670  MAE=1.6955  Pearson=0.6405
+
+OOF (best_balance, 198606 samples, 242 drugs): R²=+0.2013  RMSE=2.5186  MAE=1.9922  Pearson=0.5230
+
+OOF (final, 198606 samples, 242 drugs): R²=+0.3983  RMSE=2.1860  MAE=1.7309  Pearson=0.6429
+
+OOF (swa, 198606 samples, 242 drugs): R²=+0.4087  RMSE=2.1670  MAE=1.7082  Pearson=0.6457
+
+Cross-validation results saved to D:\ProgramData\my_model\5_Result\1_main_models\RTX5090_v1_gc_c5_s43_20261107_0211\results\attention_drug_cv_results.csv
+
+best_val model summary:
+  Mean R²: 0.3671 ± 0.1387
+  Mean RMSE: 2.1651 ± 0.1029
+  Mean Pearson: 0.6220 ± 0.0958
+
+best_balance model summary:
+  Mean R²: 0.1052 ± 0.5172
+  Mean RMSE: 2.4866 ± 0.4511
+  Mean Pearson: 0.5602 ± 0.1510
+
+final model summary:
+  Mean R²: 0.3549 ± 0.1378
+  Mean RMSE: 2.1851 ± 0.0715
+  Mean Pearson: 0.6246 ± 0.0919
+
+swa model summary:
+  Mean R²: 0.3674 ± 0.1304
+  Mean RMSE: 2.1657 ± 0.0848
+  Mean Pearson: 0.6243 ± 0.0932

@@ -1,0 +1,2 @@
+﻿comparison,n_folds,mean_diff,sd_diff,t_stat,t_p,wilcoxon_stat,wilcoxon_p,folds_negative
+"BCA-HFP seed42 vs tCNNS, pre-clamp, per-fold paired",5,-0.0643,0.1132,-1.27,0.2729,4.0,0.4375,4

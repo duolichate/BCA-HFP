@@ -1,0 +1,4 @@
+﻿metric,point,ci_lo,ci_hi,method
+R2,0.4134,0.3121,0.4891,"drug-block bootstrap, B=2000"
+Pearson,0.6468,0.5748,0.7062,"drug-block bootstrap, B=2000"
+per-fold R2 mean,0.3744,0.224,0.5247,"mean ± SD = 0.3744 ± 0.1211, t CI (df=4)"

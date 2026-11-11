@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# Data and model artefacts (download or regenerate; never commit)
+1_Data/
+2_Drug_Feature/
+3_Gene_Feature/
+5_Result/
+6_Picture/
+7_Document/
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.hdf5
+*.npz
+*.zip
+
+# Local environment
+.venv/
+.pylibs/
+.idea/
+.vscode/
+
+# Logs and temporary files
+*.log
+~$*

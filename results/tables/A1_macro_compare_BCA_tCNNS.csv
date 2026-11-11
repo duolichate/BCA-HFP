@@ -1,0 +1,5 @@
+﻿model,n_samples,n_drugs,pooled_r2,pooled_pearson,macro_r2_mean,macro_r2_median,macro_r2_q25,macro_r2_q75,macro_r2_frac_pos,macro_r2centered_mean,macro_r2centered_median,macro_pearson_mean,macro_pearson_median
+BCA-HFP (seed42) post-clamp,198606,242,0.4134,0.6468,-1.9488,-0.4099,-1.6348,0.0929,0.343,0.2627,0.301,0.5466,0.577
+BCA-HFP (seed42) pre-clamp,198606,242,0.2301,0.5234,-2.6389,-0.4576,-2.1675,0.1369,0.343,0.2871,0.3702,0.6258,0.6577
+tCNNS post-clamp,198606,242,0.3845,0.6324,-1.7781,-0.6082,-2.1896,0.0818,0.3058,0.2742,0.3039,0.5411,0.5895
+tCNNS pre-clamp,198606,242,0.26,0.5183,-2.2645,-0.535,-2.4965,0.123,0.3099,0.3497,0.3842,0.6111,0.6481

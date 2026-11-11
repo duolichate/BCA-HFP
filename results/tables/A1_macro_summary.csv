@@ -1,0 +1,4 @@
+﻿model,n_samples,n_drugs,n_drug_r2,n_drug_pearson,pooled_r2,pooled_pearson,macro_r2_mean,macro_r2_median,macro_r2_q25,macro_r2_q75,macro_r2_frac_pos,macro_r2centered_mean,macro_r2centered_median,macro_pearson_mean,macro_pearson_median
+seed42_postclamp,198606,242,242,237,0.4134,0.6468,-1.9488,-0.4099,-1.6348,0.0929,0.343,0.2627,0.301,0.5466,0.577
+seed42_preclamp,198606,242,242,242,0.2301,0.5234,-2.6389,-0.4576,-2.1675,0.1369,0.343,0.2871,0.3702,0.6258,0.6577
+seed43_postclamp,198606,242,242,237,0.4087,0.6457,-1.9456,-0.4596,-1.6833,0.104,0.3264,0.2611,0.2832,0.5433,0.5808

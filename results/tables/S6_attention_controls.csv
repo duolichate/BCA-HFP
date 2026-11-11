@@ -1,0 +1,10 @@
+﻿control,metric,value,note
+attention_vs_expression,Spearman,-0.064,p = 0.0036; Pearson = −0.006
+cross_drug_same_cell_KARPAS299,gene-profile Spearman (mean),0.99,6 fold-1 test drugs
+cross_drug_same_cell_KARPAS299,top-20 Jaccard (mean),0.918,min 0.818; 6 drugs
+cross_drug_same_cell_MV411,gene-profile Spearman (mean),0.958,6 fold-2 test drugs
+cross_drug_same_cell_MV411,top-20 Jaccard (mean),0.968,min 0.905; 6 drugs
+cross_cell,gene-profile Spearman (mean),0.242,"fixed drug, multiple cell lines"
+cross_cell,top-20 Jaccard (mean),0.119,random expectation ~0.005
+permutation_null,Spearman null (mean ± sd),0.0003,± 0.0219
+input_removal_top10,max |Δpred|,0.0303,"random control, mean 0.0001 / max 0.0010"

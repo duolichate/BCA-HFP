@@ -1,0 +1,11 @@
+﻿model,type,drug_repr,cell_repr,protocol
+tCNNS,SOTA,SMILES character-level CNN,gene expression,same folds/labels; retrained on RTX 5090
+PaccMann,SOTA,SMILES character-level encoder,gene expression,same folds/labels; retrained on RTX 5090
+TransCDR,SOTA,ChemBERTa + GIN,expression profile (mutations/methylation not used as input),same folds/labels; reference implementation
+GraTransDRP,SOTA,molecular graph Transformer,gene expression,same folds/labels; retrained on RTX 5090
+GraphDRP,SOTA,molecular graph GCN,gene expression,same folds/labels; retrained on RTX 5090
+GBM (raw expression 2048),trivial baseline,Morgan 2048 + 8 descriptors,raw expression 2048,HistGradientBoosting; same five folds
+GBM(GeneFormer 256),trivial baseline,Morgan 2048 + 8 descriptors,GeneFormer pooled 256,HistGradientBoosting; same five folds
+cell-line mean,trivial baseline,none,mean ln(IC50) of that cell line in the training folds,unseen cell line falls back to global mean
+fingerprint ridge,trivial baseline,Morgan 2048,none,"ridge regression, drug-level constant"
+nearest training drug,trivial baseline,Morgan Tanimoto,none,mean ln(IC50) of nearest training drug
