@@ -8,7 +8,7 @@ GDSC2: drugs are grouped by name (verified against InChIKey) and entire drug gro
 out, so a test drug is never seen during training.
 
 Repository: <https://github.com/duolichate/BCA-HFP> · Processed data: Zenodo
-(`10.5281/zenodo.XXXXXXX`, see [Data](#data))
+(`10.5281/zenodo.24143554`, see [Data](#data))
 
 ## Repository contents
 
@@ -35,7 +35,7 @@ The processed files that the pipeline reads (response table with fgBERT drug fea
 expression matrices, gene lists), the fold assignments, the original source releases and the
 environment dump are archived on Zenodo:
 
-> **Zenodo DOI:** `10.5281/zenodo.XXXXXXX` <!-- replace with the published DOI -->
+> **Zenodo DOI:** [`10.5281/zenodo.24143554`](https://doi.org/10.5281/zenodo.24143554)
 >
 > Archive: `BCA-HFP_processed_data.zip` (≈445 MB)
 
@@ -162,4 +162,4 @@ If you use this code or the archived data, please cite the manuscript above and 
 record:
 
 - Code: <https://github.com/duolichate/BCA-HFP>
-- Processed data: Zenodo, `10.5281/zenodo.XXXXXXX` <!-- replace with the published DOI -->
+- Processed data: Zenodo, <https://doi.org/10.5281/zenodo.24143554>
