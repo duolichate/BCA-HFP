@@ -132,11 +132,16 @@ resolved configuration of the two reported runs, including every flag listed abo
 - Two seeds are reported: 42 and 43, both with the same five drug-grouped folds.
 - Fold assignments are defined by drug name, and names mapping to the same InChIKey were
   merged before splitting (233 name groups over 242 DRUG_IDs).
-- Predictions are stored unclamped; the values in the paper are obtained by clamping each
-  prediction to the observed assay window of the corresponding drug
-  (`MIN_CONC`/`MAX_CONC` columns of the response table). Both `preclamp` and `postclamp`
-  metric rows are kept in `results/tables/A1_macro_summary.csv`.
-- Pooled R² over all out-of-fold predictions is 0.413 (seed 42) and 0.409 (seed 43).
+- Each seed directory holds four prediction sets per fold: `best_val`, `best_balance`,
+  `final` (weights of the last epoch) and `swa` (average of the last five epochs). The
+  results in the paper are the `swa` predictions, clamped to the assay window of the
+  corresponding drug (`MIN_CONC`/`MAX_CONC` columns of the response table).
+- `results/seed*/attention_drug_cv_results.csv` lists the per-fold and pooled metrics of all
+  four sets. The `oof_swa` row (0.4134 for seed 42, 0.4087 for seed 43) is reproduced by
+  recomputing R² over the `*_swa_test_predictions.csv` files.
+- `results/tables/A1_macro_summary.csv` holds both the preclamp and the postclamp macro rows
+  of the supplementary tables. Pooled R² is 0.413 (seed 42) and 0.409 (seed 43) after the
+  clamp, and 0.230 / 0.225 before it.
 
 ## Third-party code
 
