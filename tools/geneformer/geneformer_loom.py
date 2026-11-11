@@ -1,10 +1,13 @@
-import pandas as pd
+import os
+
 import numpy as np
+import pandas as pd
 import loompy
 
-import pandas as pd
-import numpy as np
-import loompy
+_ROOT = os.environ.get('BCA_HFP_ROOT',
+                 os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+_GENE = os.path.join(_ROOT, 'Data', 'Gene')
+
 
 def csv_to_raw_loom(csv_path, loom_path, cell_id_col='GDSC_ID', mName = None, nName = None):
     """
@@ -47,8 +50,8 @@ if __name__ == "__main__":
     nName = 'CCLE'
 
     csv_to_raw_loom(
-        csv_path=f'/home/xxin/my_model/Data/{mName}_EXP_ensembl.csv',
-        loom_path=f'/home/xxin/my_model/Data/{mName}_EXP.loom',   # should use the .loom extension
+        csv_path=os.path.join(_GENE, f'{mName}_EXP_ensembl.csv'),
+        loom_path=os.path.join(_GENE, f'{mName}_EXP.loom'),   # should use the .loom extension
         cell_id_col=f'{mName}_ID',
         mName=mName,
         nName=nName

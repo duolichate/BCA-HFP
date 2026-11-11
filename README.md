@@ -15,10 +15,10 @@ Repository: <https://github.com/duolichate/BCA-HFP> · Processed data: Zenodo
 | Path | Contents |
 |---|---|
 | `bca_hfp/` | Model, training and evaluation code (`models/`, `training/`, `data/`, `config/`, `utils/`) |
-| `benchmarks/` | Training/inference wrappers for the five published baselines (GraphDRP, GraTransDRP, PaccMann, DeepTTA, tCNNS) |
+| `benchmarks/` | Training/inference wrappers for the five published baselines (GraphDRP, GraTransDRP, PaccMann, TransCDR, tCNNS) |
 | `tools/` | Feature extraction scripts: Geneformer tokenisation/embedding for cell lines, and drug feature construction (fgBERT atom features + Morgan fingerprints) |
 | `data/fold_drug_grouped_5fold.csv` | The five-fold drug-grouped split used in the paper (`GROUP,DRUG_ID,fold`, 242 drugs) |
-| `results/seed42/`, `results/seed43/` | Per-sample out-of-fold test predictions for the two reported seeds, plus per-fold metrics (`attention_drug_cv_results.csv`) |
+| `results/seed42/`, `results/seed43/` | Per-sample out-of-fold test predictions for the two reported seeds, per-fold metrics (`attention_drug_cv_results.csv`) and the per-epoch training history |
 | `results/tables/` | Per-fold and per-drug metric tables behind the main text and Supplementary Tables S1–S13 |
 | `environment/env_rtx5090_20261112.txt` | GPU, driver, CUDA and full package inventory of the RTX 5090 workstation used for the reported runs |
 | `scripts/run_queue.py` | Batch launcher with the command line of every run behind the paper (two reported seeds, fingerprint-length and depth ablations, scaffold split, capacity and normalisation controls) |
@@ -35,7 +35,7 @@ are archived on Zenodo:
 
 > **Zenodo DOI:** `10.5281/zenodo.XXXXXXX` <!-- replace with the published DOI -->
 >
-> Archive: `BCA-HFP_processed_data.zip` (≈450 MB)
+> Archive: `BCA-HFP_processed_data.zip` (≈445 MB)
 
 Unpack the archive into a `Data/` directory next to `bca_hfp/`:
 
@@ -119,9 +119,12 @@ resolved configuration of the two reported runs, including every flag listed abo
 
 ## Third-party code
 
-`benchmarks/` contains code adapted from the original publications of the baselines
-(GraphDRP, GraTransDRP, PaccMann and others). Each subdirectory keeps its original licence
-and attribution; those terms apply to the corresponding files, not to the MIT licence below.
+`benchmarks/` contains code adapted from the public releases of the five baselines
+(GraphDRP, GraTransDRP, PaccMann, TransCDR, tCNNS). Licence and attribution files are kept
+where the original release provided them (`benchmarks/paccmann/LICENSE` and the README files
+in each subdirectory); those terms apply to the corresponding files, not to the MIT licence
+below. `benchmarks/tcnns/data/preprocess.py` is the original Python 2 preprocessing script
+from the tCNNS release, kept for reference and not used by the pipeline here.
 
 ## Licence
 

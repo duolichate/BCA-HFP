@@ -13,15 +13,20 @@ import numpy as np
 import pandas as pd
 from tqdm import tqdm
 
+_ROOT = os.environ.get('BCA_HFP_ROOT',
+                 os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+_GENE = os.path.join(_ROOT, 'Data', 'Gene')
+
+
 # ==================== configuration ====================
 # input: output file of geneformer_ensembl.py
-INPUT_CSV = "/home/xxin/my_model/Data/GDSC_EXP_ensembl.csv"
+INPUT_CSV = os.path.join(_GENE, 'GDSC_EXP_ensembl.csv')
 
 # output: filtered CSV
-OUTPUT_CSV = "/home/xxin/my_model/Data/GDSC_EXP_ensembl_filtered.csv"
+OUTPUT_CSV = os.path.join(_GENE, 'GDSC_EXP_ensembl_filtered.csv')
 
 # cache: global medians (avoids recomputation)
-CACHE_DIR = "/home/xxin/my_model/Data/GDSC_EXP_GF_V1/cache"
+CACHE_DIR = os.path.join(_GENE, 'GDSC_EXP_GF_V1', 'cache')
 CACHE_FILE = os.path.join(CACHE_DIR, "global_medians.pkl")
 
 # specificity score threshold (1.5-2.0 recommended, 2.0 for read counts)

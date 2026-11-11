@@ -1,6 +1,14 @@
+import os
+import pickle
+
 import pandas as pd
 import mygene
-import pickle
+
+_ROOT = os.environ.get('BCA_HFP_ROOT',
+                 os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+_GENE = os.path.join(_ROOT, 'Data', 'Gene')
+
+
 def convert_with_mygene(csv_path, output_path, gene_start_col=5, mapping_path=None):
     """
     - csv_path: input CSV path
@@ -8,7 +16,8 @@ def convert_with_mygene(csv_path, output_path, gene_start_col=5, mapping_path=No
     - gene_start_col: index of the first gene column (0-based), default 5 means the first 5 columns are metadata
     """
     if mapping_path is None:
-        mapping_path = "/home/xxin/my_model/Gene_Feature/geneformer/gene_dictionaries_30m/gene_name_id_dict_gc30M.pkl"
+        mapping_path = os.path.join(_ROOT, 'tools', 'geneformer', 'gene_dictionaries_30m',
+                                    'gene_name_id_dict_gc30M.pkl')
 
     # load the mapping file: {symbol: ensembl_id_with_version}
     with open(mapping_path, 'rb') as f:
@@ -47,7 +56,7 @@ def convert_with_mygene(csv_path, output_path, gene_start_col=5, mapping_path=No
 if __name__ == "__main__":
     Name = 'GDSC'
     convert_with_mygene(
-        csv_path=f"/home/xxin/my_model/Data/{Name}_EXP.csv",
-        output_path=f"/home/xxin/my_model/Data/{Name}_EXP_ensembl.csv",
+        csv_path=os.path.join(_GENE, f'{Name}_EXP.csv'),
+        output_path=os.path.join(_GENE, f'{Name}_EXP_ensembl.csv'),
         gene_start_col=5
     )

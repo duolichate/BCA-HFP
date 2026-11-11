@@ -1,17 +1,17 @@
-[log] D:\ProgramData\my_model\5_Result\4_training_logs\RTX5090_v1_gc_c5_s42_20261106_1822.txt  env=RTX5090
+[log] 5_Result\4_training_logs\RTX5090_v1_gc_c5_s42_20261106_1822.txt  env=RTX5090
 Random seed set to 42 (deterministic=True)
 ============================================================================================
 RUN CONFIG (CV)
 ============================================================================================
   seed=42  split_seed=42  n_splits=5  reg_norm=batchnorm
-  h5=D:\ProgramData\my_model\1_Data/Drug/GDSC_RES_FGBERT.h5
-  gene_feat_dir=D:\ProgramData\my_model\1_Data/Gene/GDSC_EXP_GF_V1
+  h5=1_Data/Drug/GDSC_RES_FGBERT.h5
+  gene_feat_dir=1_Data/Gene/GDSC_EXP_GF_V1
   epochs=20  early_stop_patience=0
   modality_dropout: drug_global=0.0 global_gene=0.0
   query_source=None  add_atom_modality=None  decouple_atom=False  no_residual=False  center_keys=False  center_query=False  atom_cond=False(pos=post)  key_cond=False  gate_content=True  g2d_pool=mean  drop_drug_global_modality=False
   loss=mse  drug_mean_weight=0.5  within_weight=0.0  query_contrast=0.0(tau=0.1)  sampler=auto  drug_bias_l2=0  balance_rule=gated
   censoring: use_cens=True  tobit_sigma=0  rmse_weight=False  pred_clamp=True  win_penalty=0  fgbert_global=False  use_desc=True
-  output_root=D:\ProgramData\my_model\5_Result\1_main_models\RTX5090_v1_gc_c5_s42_20261106_1822
+  output_root=5_Result\1_main_models\RTX5090_v1_gc_c5_s42_20261106_1822
 ============================================================================================
 ============================================================
 Loading data...
@@ -243,8 +243,8 @@ Drug Global    | Mean: -0.0000 | Std:  0.9997 | Min: -3.1268 | Max:  3.1965
 ============================================================
 
 Fold 1 | Epoch  20 |    334s | LR 2.00e-05 | TrLoss 2.3153 | TrR2 +0.7535 | VaLoss 3.3606 | VaR2 +0.2441 | VaMAE 1.5656 | VaRMSE 1.8937 | VaPearson 0.6847 | Aux 0.6975 | patience 2/off | T 0.969
-SWA model saved (last 5 epochs averaged) -> D:\ProgramData\my_model\5_Result\1_main_models\RTX5090_v1_gc_c5_s42_20261106_1822\models\attention_drug_fold1_swa.pth
-Training history saved to D:\ProgramData\my_model\5_Result\1_main_models\RTX5090_v1_gc_c5_s42_20261106_1822\results\attention_drug_training_history.csv
+SWA model saved (last 5 epochs averaged) -> 5_Result\1_main_models\RTX5090_v1_gc_c5_s42_20261106_1822\models\attention_drug_fold1_swa.pth
+Training history saved to 5_Result\1_main_models\RTX5090_v1_gc_c5_s42_20261106_1822\results\attention_drug_training_history.csv
   best epoch : 18 (val R2=+0.3235) | best balance: epoch=12 rule=gated score=0.4033 | final learned temperature=['0.9687']
 Test metrics (best_val): R²=0.4336, RMSE=2.1668, Pearson=0.6699
 Test metrics (best_balance): R²=0.4351, RMSE=2.1639, Pearson=0.6652
@@ -471,8 +471,8 @@ Drug Global    | Mean: -0.0000 | Std:  0.9997 | Min: -3.1454 | Max:  3.1673
 
   Learning rate changed from 2.00e-05 to 1.00e-05
 Fold 2 | Epoch  20 |    331s | LR 1.00e-05 | TrLoss 2.3697 | TrR2 +0.7229 | VaLoss 6.7434 | VaR2 +0.5059 | VaMAE 1.7114 | VaRMSE 2.1666 | VaPearson 0.7490 | Aux 0.6962 | patience 6/off | T 0.965
-SWA model saved (last 5 epochs averaged) -> D:\ProgramData\my_model\5_Result\1_main_models\RTX5090_v1_gc_c5_s42_20261106_1822\models\attention_drug_fold2_swa.pth
-Training history saved to D:\ProgramData\my_model\5_Result\1_main_models\RTX5090_v1_gc_c5_s42_20261106_1822\results\attention_drug_training_history.csv
+SWA model saved (last 5 epochs averaged) -> 5_Result\1_main_models\RTX5090_v1_gc_c5_s42_20261106_1822\models\attention_drug_fold2_swa.pth
+Training history saved to 5_Result\1_main_models\RTX5090_v1_gc_c5_s42_20261106_1822\results\attention_drug_training_history.csv
   best epoch : 14 (val R2=+0.5496) | best balance: epoch=2 rule=gated score=0.1311 | final learned temperature=['0.9648']
 Test metrics (best_val): R²=0.4606, RMSE=2.1183, Pearson=0.6842
 Test metrics (best_balance): R²=0.1142, RMSE=2.7146, Pearson=0.5495
@@ -699,8 +699,8 @@ Drug Global    | Mean: -0.0000 | Std:  0.9995 | Min: -3.2583 | Max:  3.3883
 
   Learning rate changed from 1.00e-05 to 5.00e-06
 Fold 3 | Epoch  20 |    339s | LR 5.00e-06 | TrLoss 2.5171 | TrR2 +0.7298 | VaLoss 6.7661 | VaR2 +0.4814 | VaMAE 1.8188 | VaRMSE 2.4159 | VaPearson 0.7057 | Aux 0.7531 | patience 12/off | T 0.970
-SWA model saved (last 5 epochs averaged) -> D:\ProgramData\my_model\5_Result\1_main_models\RTX5090_v1_gc_c5_s42_20261106_1822\models\attention_drug_fold3_swa.pth
-Training history saved to D:\ProgramData\my_model\5_Result\1_main_models\RTX5090_v1_gc_c5_s42_20261106_1822\results\attention_drug_training_history.csv
+SWA model saved (last 5 epochs averaged) -> 5_Result\1_main_models\RTX5090_v1_gc_c5_s42_20261106_1822\models\attention_drug_fold3_swa.pth
+Training history saved to 5_Result\1_main_models\RTX5090_v1_gc_c5_s42_20261106_1822\results\attention_drug_training_history.csv
   best epoch : 8 (val R2=+0.4945) | best balance: epoch=1 rule=gated score=-0.4467 | final learned temperature=['0.9702']
 Test metrics (best_val): R²=0.2284, RMSE=2.0652, Pearson=0.5105
 Test metrics (best_balance): R²=-0.4997, RMSE=2.8791, Pearson=0.3953
@@ -926,8 +926,8 @@ Drug Global    | Mean:  0.0000 | Std:  0.9996 | Min: -3.5496 | Max:  3.0811
 ============================================================
 
 Fold 4 | Epoch  20 |    376s | LR 2.00e-05 | TrLoss 2.3781 | TrR2 +0.7617 | VaLoss 4.7982 | VaR2 +0.0129 | VaMAE 1.7678 | VaRMSE 2.2071 | VaPearson 0.5951 | Aux 0.7201 | patience 1/off | T 0.970
-SWA model saved (last 5 epochs averaged) -> D:\ProgramData\my_model\5_Result\1_main_models\RTX5090_v1_gc_c5_s42_20261106_1822\models\attention_drug_fold4_swa.pth
-Training history saved to D:\ProgramData\my_model\5_Result\1_main_models\RTX5090_v1_gc_c5_s42_20261106_1822\results\attention_drug_training_history.csv
+SWA model saved (last 5 epochs averaged) -> 5_Result\1_main_models\RTX5090_v1_gc_c5_s42_20261106_1822\models\attention_drug_fold4_swa.pth
+Training history saved to 5_Result\1_main_models\RTX5090_v1_gc_c5_s42_20261106_1822\results\attention_drug_training_history.csv
   best epoch : 19 (val R2=+0.1808) | best balance: epoch=15 rule=gated score=0.5755 | final learned temperature=['0.9701']
 Test metrics (best_val): R²=0.2738, RMSE=2.0716, Pearson=0.5429
 Test metrics (best_balance): R²=0.2560, RMSE=2.0969, Pearson=0.5338
@@ -1156,8 +1156,8 @@ Drug Global    | Mean:  0.0000 | Std:  0.9996 | Min: -4.0653 | Max:  3.2285
 ============================================================
 
 Fold 5 | Epoch  20 |    461s | LR 2.00e-05 | TrLoss 2.2969 | TrR2 +0.7427 | VaLoss 4.7692 | VaR2 +0.1062 | VaMAE 1.7462 | VaRMSE 2.1873 | VaPearson 0.4833 | Aux 0.6988 | patience 2/off | T 0.972
-SWA model saved (last 5 epochs averaged) -> D:\ProgramData\my_model\5_Result\1_main_models\RTX5090_v1_gc_c5_s42_20261106_1822\models\attention_drug_fold5_swa.pth
-Training history saved to D:\ProgramData\my_model\5_Result\1_main_models\RTX5090_v1_gc_c5_s42_20261106_1822\results\attention_drug_training_history.csv
+SWA model saved (last 5 epochs averaged) -> 5_Result\1_main_models\RTX5090_v1_gc_c5_s42_20261106_1822\models\attention_drug_fold5_swa.pth
+Training history saved to 5_Result\1_main_models\RTX5090_v1_gc_c5_s42_20261106_1822\results\attention_drug_training_history.csv
   best epoch : 18 (val R2=+0.1559) | best balance: epoch=18 rule=gated score=0.5825 | final learned temperature=['0.9722']
 Test metrics (best_val): R²=0.4897, RMSE=2.3430, Pearson=0.7139
 Test metrics (best_balance): R²=0.4897, RMSE=2.3430, Pearson=0.7139
@@ -1172,7 +1172,7 @@ OOF (final, 198606 samples, 242 drugs): R²=+0.4022  RMSE=2.1789  MAE=1.7319  Pe
 
 OOF (swa, 198606 samples, 242 drugs): R²=+0.4134  RMSE=2.1584  MAE=1.7054  Pearson=0.6468
 
-Cross-validation results saved to D:\ProgramData\my_model\5_Result\1_main_models\RTX5090_v1_gc_c5_s42_20261106_1822\results\attention_drug_cv_results.csv
+Cross-validation results saved to 5_Result\1_main_models\RTX5090_v1_gc_c5_s42_20261106_1822\results\attention_drug_cv_results.csv
 
 best_val model summary:
   Mean R²: 0.3772 ± 0.1179

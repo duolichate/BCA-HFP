@@ -1,9 +1,15 @@
+import os
 from geneformer import EmbExtractor
 import torch
 from pathlib import Path
 import json
 from datasets import load_from_disk
 import shutil
+
+_ROOT = os.environ.get('BCA_HFP_ROOT',
+                 os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+_GENE = os.path.join(_ROOT, 'Data', 'Gene')
+
 
 def batch_extract_and_save_V1(dataset_path, output_dir, model_directory, batch_size=100, **extractor_kwargs):
     full_dataset = load_from_disk(dataset_path)
@@ -66,9 +72,9 @@ if __name__ == '__main__':
         # no manual token_dictionary_file any more
     }
     batch_extract_and_save_V1(
-        dataset_path=f'/home/xxin/my_model/Data/{NAME}_V1.dataset',
-        output_dir=f'/home/xxin/my_model/Data/{NAME}_EXP_GF_V1',
-        model_directory=f'/home/xxin/my_model/Gene_Feature/geneformer_model_V1',
+        dataset_path=os.path.join(_GENE, f'{NAME}_V1.dataset'),
+        output_dir=os.path.join(_GENE, f'{NAME}_EXP_GF_V1'),
+        model_directory=os.path.join(_ROOT, 'tools', 'geneformer', 'geneformer_model_V1'),
         batch_size=100,
         **extractor_kwargs
     )

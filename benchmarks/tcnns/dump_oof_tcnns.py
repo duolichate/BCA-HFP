@@ -7,7 +7,7 @@ per-sample (y, p, fold). the original train_tcnns.py only wrote cv_folds.csv /
 final_performance.csv and kept no per-sample predictions; this script reuses the same data
 pipeline and checkpoints and exports the OOF per-sample predictions to CSV.
 
-usage (from the project root D:\\ProgramData\\my_model):
+usage (from the repository root):
     python 4_DrugResponse_BCAHFP/benchmarks/tcnns/dump_oof_tcnns.py \
         --ckpt_dir 5_Result/2_baselines/tCNNS/CV/RTX5090_v1_base6_tCNNS_20261106_1226 \
         --output 5_Result/3_diagnostics/4_baselines/tcnns_oof_from_ckpt.csv

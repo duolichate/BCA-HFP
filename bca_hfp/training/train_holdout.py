@@ -313,7 +313,7 @@ def run_holdout(args):
     if args.no_early_stop:
         config['training']['early_stop_patience'] = 0
 
-    # output dir: Result/My_model/HO/{dataset}_{model_type}_{layer}_{gene_version}_{split}_fp{dim}/
+    # output dir: Result/holdout/HO/{dataset}_{model_type}_{layer}_{gene_version}_{split}_fp{dim}/
     if args.layer == 1:
         mlp_layer_str = '1l'
     elif args.layer == 2:
@@ -364,7 +364,7 @@ def run_holdout(args):
         subdir_name = f"{subdir_name}_gbd"
     if args.tag:
         subdir_name = f"{subdir_name}_{args.tag}"
-    output_root = os.path.join(root_dir("Result"), "My_model", "HO", subdir_name)
+    output_root = os.path.join(root_dir("Result"), "holdout", "HO", subdir_name)
     config['output']['model_save_dir'] = os.path.join(output_root, 'models')
     config['output']['attention_csv_dir'] = os.path.join(output_root, 'attentions')
     config['output']['result_save_dir'] = os.path.join(output_root, 'results')
