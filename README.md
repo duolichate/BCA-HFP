@@ -27,11 +27,13 @@ Repository: <https://github.com/duolichate/BCA-HFP> · Processed data: Zenodo
 ## Data
 
 The GDSC2 dataset is publicly available from the Genomics of Drug Sensitivity in Cancer
-consortium (<https://www.cancerrxgene.org/>). It is not redistributed here.
+consortium (<https://www.cancerrxgene.org/>). This repository does not redistribute it; the
+archive below keeps the original source releases next to the processed files so that the
+pipeline can be re-run from a single download.
 
-The processed files that the pipeline consumes directly (response table with fgBERT drug
-features, basal expression matrices, gene lists, fold assignments and the environment dump)
-are archived on Zenodo:
+The processed files that the pipeline reads (response table with fgBERT drug features, basal
+expression matrices, gene lists), the fold assignments, the original source releases and the
+environment dump are archived on Zenodo:
 
 > **Zenodo DOI:** `10.5281/zenodo.XXXXXXX` <!-- replace with the published DOI -->
 >
@@ -43,24 +45,43 @@ Unpack the archive into a `Data/` directory next to `bca_hfp/`:
 unzip BCA-HFP_processed_data.zip -d Data
 ```
 
-Download the release and place the files so that the tree looks like:
+After unpacking, the files read by the pipeline are laid out as:
 
 ```
 Data/
 ├── Drug/
 │   ├── GDSC_RES_FGBERT.h5        # response table + fgBERT drug features
 │   └── GDSC_RES.csv
-└── Gene/
-    ├── GDSC_EXP.csv              # basal expression matrix (cell line x gene)
-    ├── GDSC_EXP_ensembl.csv
-    ├── global_gene_names_GDSC.txt
-    └── GDSC_EXP_GF_V1/           # Geneformer V1 embeddings, one .pt file per cell line
+├── Gene/
+│   ├── GDSC_EXP.csv              # basal expression matrix (cell line x gene)
+│   ├── GDSC_EXP_ensembl.csv
+│   ├── global_gene_names_GDSC.txt
+│   └── GDSC_EXP_GF_V1/           # Geneformer V1 embeddings, one .pt file per cell line
+└── Membership/
+    ├── fold_var3_fromckpt.csv    # identical to data/fold_drug_grouped_5fold.csv
+    └── fold_scaffold_det.csv     # scaffold split used for the control run
 ```
 
-`GDSC_EXP_GF_V1/` can be regenerated from `GDSC_EXP.csv` with `tools/geneformer/` and the
-public Geneformer V1 checkpoint (<https://huggingface.co/ctheodoris/Geneformer>); see
-`geneformer_extract_V1.py`. The embeddings themselves are not distributed here, because
-their redistribution is governed by the Geneformer licence.
+`GDSC_EXP_GF_V1/` is not in the archive. It is produced by the scripts in `tools/geneformer/`,
+following the Geneformer V1 protocol:
+
+1. `geneformer_ensembl.py` and `geneformer_filter.py` — convert gene symbols to Ensembl IDs and
+   apply the specificity filter. The Geneformer gene dictionary
+   `gene_name_id_dict_gc30M.pkl` has to be placed in `tools/geneformer/gene_dictionaries_30m/`.
+2. `geneformer_loom.py` — write `Data/Gene/GDSC_EXP.loom` from `GDSC_EXP_ensembl.csv`.
+3. `geneformer_tokenizer_V1.py` then `geneformer_extract_V1.py` — tokenise the loom file with
+   `TranscriptomeTokenizer` (rank-value encoding, V1 dictionary) and extract the per-cell
+   embeddings with the V1 checkpoint, which has to be placed in
+   `tools/geneformer/geneformer_model_V1/`
+   (<https://huggingface.co/ctheodoris/Geneformer>).
+
+These feature-extraction scripts also need the `geneformer`, `loompy` and `mygene` packages,
+which the training environment below does not use. The embeddings themselves are not
+distributed, because their redistribution is governed by the Geneformer licence.
+
+`GDSC_RES_FGBERT.h5` can likewise be rebuilt from `GDSC_RES.csv` with
+`tools/drug_features/gdsc_drug_feature.py`, which needs TensorFlow, RDKit, OpenBabel and the
+FG-BERT weights file. The archive ships the finished file, so this step is optional.
 
 Set `BCA_HFP_ROOT` if the data directory lives outside the repository root:
 

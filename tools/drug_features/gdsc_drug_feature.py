@@ -265,11 +265,11 @@ def clean_smiles(smiles_str):
 def main():
     import argparse
     ap = argparse.ArgumentParser(description='extract drug atom features from the GDSC response table')
-    ap.add_argument('--data_csv', type=str, default='../Data/Drug/GDSC_RES.csv',
+    ap.add_argument('--data_csv', type=str, default='../../Data/Drug/GDSC_RES.csv',
                     help='GDSC response table CSV path')
     ap.add_argument('--weights_h5', type=str, default='fg_bert_weights.h5',
                     help='FG-BERT pretrained weights path')
-    ap.add_argument('--out_h5', type=str, default='../Data/Drug/GDSC_RES_FGBERT.h5',
+    ap.add_argument('--out_h5', type=str, default='../../Data/Drug/GDSC_RES_FGBERT.h5',
                     help='output h5 path')
     ap.add_argument('--no_adjoin', action='store_true',
                     help='disable the bond-constrained attention')
