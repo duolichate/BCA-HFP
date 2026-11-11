@@ -18,7 +18,7 @@ class Embeddings(nn.Module):
     """
     def __init__(self, vocab_size, hidden_size, max_position_size, dropout_rate):
         super(Embeddings, self).__init__()
-        self.word_embeddings = nn.Embedding(vocab_size, hidden_size) #每个词和位置先随机初始化
+        self.word_embeddings = nn.Embedding(vocab_size, hidden_size)  # word and position embeddings start randomly initialised
         self.position_embeddings = nn.Embedding(max_position_size, hidden_size)
         self.LayerNorm = nn.LayerNorm(hidden_size)
         self.dropout = nn.Dropout(dropout_rate)

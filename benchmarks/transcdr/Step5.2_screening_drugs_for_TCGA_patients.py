@@ -68,7 +68,7 @@ all_response = all_response.sort_values(by='y_pred',ascending=False)
 all_response.to_csv('./result/TCGA_screening/all_response.csv')
 all_patients = pd.concat(all_patients,axis=0)
 all_patients.to_csv('./result/TCGA_screening/all_patients.csv')
-# 针对每种药物
+# for each drug
 response_drugs = []
 for drug in drugs_info['drug_name'].unique():
     print(drug)
@@ -87,7 +87,7 @@ response_drugs.to_csv('./result/TCGA_screening/all_drug_response_top5_tail5.csv'
 response_drugs['patient.arr'].value_counts()
 response_drugs['drug_name'].value_counts()
 
-# 提取每种药物top5%和tail5%的病人的表达矩阵
+# expression matrix of the top-5% and bottom-5% patients of each drug
 patient_id = response_drugs['patient.arr'].unique()
 GE_all = []
 N_sample = []
@@ -106,7 +106,7 @@ N_sample.to_csv('./result/TCGA_screening/N_sample.csv')
 GE_all.to_csv('./result/TCGA_screening/GE_all.csv')
 
 
-# 选择sensitive 和resistant差异最大的药物
+# drugs with the largest sensitive-versus-resistant difference
 drug_names = response_drugs['drug_name'].unique()
 sen_values = []
 res_values = []
@@ -123,7 +123,7 @@ res['diff'] = res['sen_values']-res['res_values']
 res = res.sort_values(by='diff',ascending=False)
 res.to_csv('./result/TCGA_screening/GSEA_analysis/drug_for_GSEA_analysis.csv')
 
-# 得到每种药物对应的表达矩阵
+# expression matrix of the corresponding drug
 drug = 'Dasatinib'
 response_d = response_drugs[response_drugs['drug_name']==drug]
 GE = GE_all[response_d['patient.arr'].values]

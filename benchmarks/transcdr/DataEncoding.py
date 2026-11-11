@@ -2,10 +2,11 @@
 # -*- coding:utf-8 -*-
 
 """
-@author:野山羊骑士
-@e-mail：thankyoulaojiang@163.com
-@file：PycharmProject-PyCharm-DataEncoding.py
-@time:2021/9/7 10:04 
+Upstream TransCDR file (see benchmarks/transcdr/README.md for the original release).
+@author: TransCDR authors
+@e-mail: thankyoulaojiang@163.com
+@file: PycharmProject-PyCharm-DataEncoding.py
+@time: 2021/9/7 10:04
 """
 import numpy as np
 import pandas as pd
