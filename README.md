@@ -14,13 +14,13 @@ Repository: <https://github.com/duolichate/BCA-HFP> · Processed data: Zenodo
 
 | Path | Contents |
 |---|---|
-| `bca_hfp/` | Model, training and evaluation code (`models/`, `training/`, `data/`, `config/`, `analysis/`) |
+| `bca_hfp/` | Model, training and evaluation code (`models/`, `training/`, `data/`, `config/`, `utils/`) |
 | `benchmarks/` | Training/inference wrappers for the five published baselines (GraphDRP, GraTransDRP, PaccMann, DeepTTA, tCNNS) |
 | `tools/` | Feature extraction scripts: Geneformer tokenisation/embedding for cell lines, and drug feature construction (fgBERT atom features + Morgan fingerprints) |
 | `data/fold_drug_grouped_5fold.csv` | The five-fold drug-grouped split used in the paper (`GROUP,DRUG_ID,fold`, 242 drugs) |
 | `results/seed42/`, `results/seed43/` | Per-sample out-of-fold test predictions for the two reported seeds, plus per-fold metrics (`attention_drug_cv_results.csv`) |
 | `results/tables/` | Per-fold and per-drug metric tables behind the main text and Supplementary Tables S1–S13 |
-| `environment/srv_env_20261030.txt` | `pip freeze` of the training environment |
+| `environment/env_rtx5090_20261112.txt` | GPU, driver, CUDA and full package inventory of the RTX 5090 workstation used for the reported runs |
 | `scripts/run_queue.py` | Batch launcher with the command line of every run behind the paper (two reported seeds, fingerprint-length and depth ablations, scaffold split, capacity and normalisation controls) |
 | `logs/` | Full training logs for the two reported runs (resolved configuration, per-epoch losses, per-fold test metrics) |
 
@@ -70,10 +70,17 @@ export BCA_HFP_ROOT=/path/to/project      # optional, defaults to the repository
 
 ## Environment
 
-Python 3.11 with PyTorch 2.x and CUDA. The exact package set used for the reported runs:
+Python 3.11.18 with torch 2.7.1 (CUDA 12.8), rdkit 2026.9.1 and pandas 3.1.0. The full
+package inventory of the workstation used for the reported runs is in
+`environment/env_rtx5090_20261112.txt`, which also lists the pinned versions of the
+core packages:
 
 ```bash
-pip install -r environment/srv_env_20261030.txt
+conda create -n bca_hfp python=3.11
+conda activate bca_hfp
+pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cu128
+pip install h5py==3.16.0 numpy==2.4.6 pandas==3.1.0 rdkit==2026.9.1 scikit-learn==1.9.1 \
+            scipy==1.17.1 tables==3.11.1 tqdm==4.70.1
 ```
 
 The two reported runs were trained on a single RTX 5090; earlier hardware-comparison runs
