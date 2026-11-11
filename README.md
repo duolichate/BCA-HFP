@@ -62,18 +62,21 @@ Data/
     └── fold_scaffold_det.csv     # scaffold split used for the control run
 ```
 
-`GDSC_EXP_GF_V1/` is not in the archive. It is produced by the scripts in `tools/geneformer/`,
-following the Geneformer V1 protocol:
+`GDSC_EXP_GF_V1/` is not in the archive. It is produced from the archived expression matrix by
+the scripts in `tools/geneformer/`, following the Geneformer V1 protocol:
 
-1. `geneformer_ensembl.py` and `geneformer_filter.py` — convert gene symbols to Ensembl IDs and
-   apply the specificity filter. The Geneformer gene dictionary
-   `gene_name_id_dict_gc30M.pkl` has to be placed in `tools/geneformer/gene_dictionaries_30m/`.
-2. `geneformer_loom.py` — write `Data/Gene/GDSC_EXP.loom` from `GDSC_EXP_ensembl.csv`.
-3. `geneformer_tokenizer_V1.py` then `geneformer_extract_V1.py` — tokenise the loom file with
-   `TranscriptomeTokenizer` (rank-value encoding, V1 dictionary) and extract the per-cell
-   embeddings with the V1 checkpoint, which has to be placed in
-   `tools/geneformer/geneformer_model_V1/`
-   (<https://huggingface.co/ctheodoris/Geneformer>).
+1. `geneformer_loom.py` — write `Data/Gene/GDSC_EXP.loom` from `GDSC_EXP_ensembl.csv`, which is
+   already in the archive. `geneformer_ensembl.py` and `geneformer_filter.py` are only needed if
+   the matrix has to be rebuilt from the raw RMA file.
+2. `geneformer_tokenizer_V1.py` — rank-value tokenisation with the V1 (gc30M) gene dictionary
+   shipped with the Geneformer package; writes `Data/Gene/GDSC_V1.dataset`.
+3. `geneformer_extract_V1.py` — per-gene embeddings (`emb_mode='gene'`, last layer, stored as
+   float16) with the V1 checkpoint placed in `tools/geneformer/geneformer_model_V1/`
+   (<https://huggingface.co/ctheodoris/Geneformer>); writes one `.pt` file per cell line.
+
+Running this chain on the archived matrix yields 968 cell lines, which covers all 941 cell
+lines used by the reported runs, so the training results are reproducible from the archive
+alone.
 
 These feature-extraction scripts also need the `geneformer`, `loompy` and `mygene` packages,
 which the training environment below does not use. The embeddings themselves are not
